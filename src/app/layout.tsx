@@ -7,6 +7,7 @@ import Footer from "@/components/layout/Footer";
 const mulish = Mulish({
     subsets: ["latin"],
     display: "swap",
+    weight: ["300", "400", "500", "600", "700", "800", "900"],
     variable: "--font-mulish",
 });
 
@@ -81,7 +82,7 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={`${mulish.variable} antialiased`}>
                 <Header />
                 {children}
