@@ -43,7 +43,7 @@ export default function Header() {
         <>
             {/* ── NAVBAR ── */}
             <nav className="fixed z-50 min-h-20 w-full">
-                <div className="m-auto flex h-16 max-w-7xl items-center justify-between rounded-b-lg bg-white px-4 shadow-md">
+                <div className="m-auto flex h-16 max-w-325 items-center justify-between rounded-b-lg bg-white px-4 shadow-md">
                     {/* LOGO */}
                     <Link href="/">
                         <Image
@@ -67,19 +67,11 @@ export default function Header() {
                                         href={link.href}
                                         className={`relative pb-1 transition-colors duration-200 ${
                                             isActive(link.href)
-                                                ? "text-deepspace"
+                                                ? "text-deepspace font-bold"
                                                 : "text-muted hover:text-deepspace"
                                         }`}
                                     >
                                         {link.label}
-                                        {/* Active dot */}
-                                        <span
-                                            className={`bg-malachite absolute -bottom-0.5 left-1/2 h-1 w-1 -translate-x-1/2 rounded-full transition-all duration-200 ${
-                                                isActive(link.href)
-                                                    ? "scale-120 opacity-100"
-                                                    : "scale-0 opacity-0"
-                                            }`}
-                                        />
                                     </Link>
                                 </li>
                             ))}
