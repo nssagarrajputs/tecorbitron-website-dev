@@ -24,5 +24,11 @@
 ## Forth Commit
 
 # Design Privacy Policy and Terms & Conditions
-
 # Update H & F
+
+## Fifth Commit
+
+# Design Portfolio/Work v1
+# Design Contact/Let's Talk v1
+
+## Sixth Commit

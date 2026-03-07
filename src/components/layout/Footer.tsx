@@ -42,7 +42,7 @@ export default function Footer() {
                 aria-hidden
             >
                 <span
-                    className="leading-none font-black whitespace-nowrap text-white/[0.03] uppercase"
+                    className="leading-none font-black whitespace-nowrap text-white/3 uppercase"
                     style={{
                         fontSize: "clamp(80px, 18vw, 220px)",
                         letterSpacing: "-0.04em",
