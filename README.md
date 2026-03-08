@@ -41,4 +41,9 @@
 
 ## Eight Commit
 
-#
+# Design Homepage v1, add client stripe logo.
+# Update Add TrustedPartner section onto About Page
+# Add Images for the service page placeholder
+# install sharp - Next Image Optmization
+
+## Nineth Commit

@@ -186,3 +186,18 @@
     border-top: 1px solid var(--color-border);
     margin: 2rem 0;
 }
+
+
+
+/* ── ADD IN globals.css ── */
+/* Marquee scroll — ClientStripe */
+
+@keyframes marquee-left {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+    0%   { transform: translateX(-50%); }
+    100% { transform: translateX(0); }
+}
