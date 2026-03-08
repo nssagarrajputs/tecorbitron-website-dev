@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import FounderImage from "@/assets/founder.png";
+import FounderImage from "@/assets/about/founder.png";
 
 export default function Founder() {
     return (
