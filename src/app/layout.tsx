@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
+import StructuredData, { globalSchema } from "@/components/StructuredData";
 
 const mulish = Mulish({
     subsets: ["latin"],
@@ -67,6 +68,28 @@ export const metadata: Metadata = {
         ],
     },
 
+    openGraph: {
+        type: "website",
+        locale: "en_IN",
+        url: "https://www.tecorbitron.com",
+        siteName: "Tecorbitron Solutions",
+        images: [
+            {
+                url: "/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Tecorbitron Solutions — Next-Gen IT Solutions",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Tecorbitron | Software Consulting and Development",
+        description:
+            "Next-Gen IT Solutions powered by AI. Web, App, Software, UI/UX, SEO & AI services.",
+        images: ["/og-image.png"],
+    },
+
     // ── WEB MANIFEST ───────────────────────────────────
     manifest: "/site.webmanifest",
 
@@ -100,6 +123,7 @@ export default function RootLayout({
             <body
                 className={`${mulish.variable} ${caveat.variable} antialiased`}
             >
+                <StructuredData data={globalSchema()} />
                 <GoogleAnalytics
                     gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
                 />

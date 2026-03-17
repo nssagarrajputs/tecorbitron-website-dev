@@ -2,13 +2,22 @@ import Hero from "@/components/page/portfolio/Hero";
 import ProjectList from "@/components/page/portfolio/ProjectList";
 import { client } from "@/sanity/client";
 import { PORTFOLIO_LIST_QUERY } from "@/sanity/queries/portfolio";
+import type { Metadata } from "next";
 
 export const revalidate = 21600;
 
-export const metadata = {
+export const metadata: Metadata = {
     title: "Our Work",
     description:
-        "Explore our featured projects — web development, mobile apps, SEO campaigns, and custom software solutions delivered for clients across India and beyond.",
+        "Explore Tecorbitron's portfolio — web apps, mobile apps, e-commerce platforms, and custom software solutions delivered for clients across India and beyond.",
+    alternates: { canonical: "/portfolio" },
+    openGraph: {
+        title: "Portfolio — Tecorbitron Solutions",
+        description:
+            "Real projects, real results. Browse our work across web, app, software, and AI solutions.",
+        url: "https://www.tecorbitron.com/portfolio",
+        images: [{ url: "/og-image.png", width: 1200, height: 630 }],
+    },
 };
 
 type Project = {

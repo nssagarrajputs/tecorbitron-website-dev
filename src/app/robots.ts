@@ -6,6 +6,7 @@ export default function robots(): MetadataRoute.Robots {
             {
                 userAgent: "*",
                 allow: "/",
+                disallow: ["/api/", "/admin/"],
             },
         ],
         sitemap: "https://www.tecorbitron.com/sitemap.xml",

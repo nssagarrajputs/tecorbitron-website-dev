@@ -1,6 +1,10 @@
 # Tecorbitron — Commit History
 
 ```
+commit 16
+    + Generate Meta Data
+    + Add Structured JSON-LD Data
+    
 commit 15
     + Add Google Analytics 4
     + Integrate Embeded Fillout Form

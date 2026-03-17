@@ -1,4 +1,12 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Terms & Conditions",
+    description: "Terms & Conditions for Tecorbitron Solutions Pvt. Ltd.",
+    alternates: { canonical: "/terms" },
+    robots: { index: false, follow: false },
+};
 
 const sections = [
     {
