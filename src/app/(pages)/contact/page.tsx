@@ -1,9 +1,8 @@
-import Hero from "@/components/page/contact/Hero";
-import ContactSection from "@/components/page/contact/ContactSection";
-import MapSection from "@/components/page/contact/MapSection";
-import TrustSignals from "@/components/page/contact/TrustSignals";
-import Channel from "@/components/page/contact/Channel";
 import type { Metadata } from "next";
+import Hero from "@/components/page/contact/Hero";
+import Channel from "@/components/page/contact/Channel";
+import ContactSection from "@/components/page/contact/ContactSection";
+import TrustSignals from "@/components/page/contact/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
 
 export const metadata: Metadata = {
@@ -35,7 +34,6 @@ export default function Contact() {
             <Channel />
             <ContactSection />
             <TrustSignals />
-            <MapSection />
         </main>
     );
 }
