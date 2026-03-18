@@ -1,8 +1,9 @@
 # Tecorbitron — Commit History
 
 ```
-commit 18
+commit 18 & 19
     + Add <SpeedInsights/> of vercal
+    + Add <Analytics/> of vercal
 
 commit 17
     + Enhance SEO Data

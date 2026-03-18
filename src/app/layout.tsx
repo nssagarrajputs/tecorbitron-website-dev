@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { GoogleAnalytics } from "@/components/GoogleAnalytics";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
 import StructuredData, { globalSchema } from "@/components/StructuredData";
 
 const mulish = Mulish({
@@ -126,6 +127,7 @@ export default function RootLayout({
             >
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
+                <Analytics />
                 <GoogleAnalytics
                     gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
                 />
