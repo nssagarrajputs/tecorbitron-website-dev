@@ -1,166 +1,94 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import logo from "@/assets/logo-kit/logo-dark.svg";
-import { ArrowUpRight } from "lucide-react";
-
-const navLinks = [
-    { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
-    { label: "Services", href: "/services" },
-    { label: "Portfolio", href: "/portfolio" },
-    { label: "Blog", href: "/blog" },
-    { label: "Careers", href: "/careers" },
-    { label: "Contact", href: "/contact" },
-];
-
-const socialLinks = [
-    { full: "LinkedIn", href: "https://www.linkedin.com/company/tecorbitrons" },
-    { full: "Instagram", href: "https://www.instagram.com/tecorbitron" },
-    { full: "Facebook", href: "https://www.facebook.com/tecorbitron" },
-    { full: "YouTube", href: "https://www.youtube.com/@Tecorbitron" },
-    { full: "WhatsApp", href: "https://wa.me/919084800496" },
-];
+import logo from "@/assets/logo-kit/logo-light.svg";
+import { FaLinkedinIn } from "react-icons/fa";
+import { FaWhatsapp } from "react-icons/fa";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="bg-deepspace-soft relative overflow-hidden">
-            {/* ── GIANT BACKGROUND TEXT ── */}
-            <div
-                className="pointer-events-none absolute inset-x-0 bottom-0 flex items-end justify-center overflow-hidden select-none"
-                aria-hidden
-            >
-                <span
-                    className="leading-none font-black whitespace-nowrap text-white/3 uppercase"
-                    style={{
-                        fontSize: "clamp(80px, 18vw, 220px)",
-                        letterSpacing: "-0.04em",
-                    }}
-                >
-                    TECORBITRON
-                </span>
-            </div>
+        <footer className="text-typo-secondary mt-40 select-none">
+            <div className="text-small mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-12 px-8">
+                {/* Intro */}
+                <div className="flex w-fit flex-col gap-5">
+                    <Link href="/">
+                        <Image
+                            src={logo}
+                            alt="Tecorbitron Solutions"
+                            width={180}
+                        />
+                    </Link>
+                    <h3 className="max-w-sm">
+                        Next-Gen IT Solutions, Powered by AI.
+                    </h3>
 
-            {/* ── MAIN CONTENT ── */}
-            <div className="mx-auto max-w-7xl px-4 pt-16 pb-10">
-                {/* ── TOP ROW — Logo + Nav ── */}
-                <div className="flex flex-col gap-12 lg:flex-row lg:items-start lg:justify-between">
-                    {/* Logo + tagline */}
-                    <div className="flex max-w-xs flex-col gap-5">
-                        <Link href="/">
-                            <Image
-                                src={logo}
-                                alt="Tecorbitron Solutions"
-                                width={180}
-                            />
+                    {/* Social */}
+                    <div className="text-h4 text-typo-muted **:hover:text-primary-hover flex gap-6">
+                        <Link href="https://www.linkedin.com/company/tecorbitrons">
+                            <FaLinkedinIn />
                         </Link>
-                        <p className="text-white">
-                            Next-Gen IT Solutions, Powered by AI.
-                        </p>
-                    </div>
+                        <Link href="https://www.facebook.com/tecorbitron">
+                            <FaFacebook />
+                        </Link>
+                        <Link href="https://www.instagram.com/tecorbitron">
+                            <FaInstagram />
+                        </Link>
 
-                    {/* Nav */}
-                    <div className="flex flex-col gap-5">
-                        <p className="text-sm font-black tracking-widest text-white/50">
-                            NAVIGATION
-                        </p>
-                        <nav className="grid grid-cols-2 gap-x-12 gap-y-3 sm:flex sm:flex-wrap sm:gap-x-10 sm:gap-y-3">
-                            {navLinks.map((link) => (
-                                <Link
-                                    key={link.label}
-                                    href={link.href}
-                                    className="group hover:text-malachite flex items-center gap-2 font-semibold text-white transition-all duration-200"
-                                >
-                                    <span className="bg-malachite h-px w-0 transition-all duration-300 group-hover:w-4" />
-                                    {link.label}
-                                </Link>
-                            ))}
-                        </nav>
+                        <Link href="https://www.youtube.com/@Tecorbitron">
+                            <FaYoutube />
+                        </Link>
+                        <Link href="https://wa.me/919084800496">
+                            <FaWhatsapp />
+                        </Link>
                     </div>
                 </div>
 
-                {/* ── SOCIAL LINKS ── */}
-                <div className="my-16 flex flex-wrap gap-8 md:justify-between">
-                    {socialLinks.map((s) => (
-                        <Link
-                            key={s.full}
-                            href={s.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            aria-label={s.full}
-                            title={s.full}
-                            className="hover:text-malachite inline-flex w-fit gap-4 font-black text-white/80 underline underline-offset-8 transition-all duration-200 hover:scale-[1.1]"
-                        >
-                            {s.full} <ArrowUpRight />
-                        </Link>
-                    ))}
+                {/* Quick Links */}
+                <div>
+                    <h3 className="mb-6 font-bold">Quick Links</h3>
+                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                        <Link href="/">Home</Link>
+                        <Link href="/about">About</Link>
+                        <Link href="/services">Services</Link>
+                        <Link href="/portfolio">Portfolio</Link>
+                        <Link href="/blog">Blogs</Link>
+                    </div>
                 </div>
 
-                {/* ── CONTACT STRIP ── */}
-                <div className="my-12 grid grid-cols-1 gap-6 border-t border-white/5 pt-10 sm:grid-cols-3">
-                    <a
-                        href="mailto:info@tecorbitron.com"
-                        className="group flex w-fit flex-col gap-1"
-                    >
-                        <span className="group-hover:text-malachite text-sm font-black tracking-widest text-white/40 transition-colors duration-200">
-                            EMAIL
-                        </span>
-                        <span className="font-bold text-white/80 transition-colors duration-200 group-hover:text-white">
+                {/* Important */}
+                <div>
+                    <h3 className="mb-6 font-bold">Importants</h3>
+                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                        <Link href="/contact">{"Let's Talk"}</Link>
+                        <Link href="/careers">Career</Link>
+                        <Link href="/privacy-policy">Privacy Policy</Link>
+                        <Link href="/terms">Terms</Link>
+                    </div>
+                </div>
+
+                {/* Get In Touch */}
+                <div>
+                    <h3 className="mb-6 font-bold">Get In Touch</h3>
+                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                        <span>Ghaziabad, NCR, India</span>
+                        <a href="mailto:info@tecorbitron.com">
                             info@tecorbitron.com
-                        </span>
-                    </a>
-
-                    <a
-                        href="tel:+919084800496"
-                        className="group flex w-fit flex-col gap-1"
-                    >
-                        <span className="group-hover:text-malachite text-sm font-black tracking-widest text-white/40 transition-colors duration-200">
-                            PHONE
-                        </span>
-                        <span className="font-bold text-white/80 transition-colors duration-200 group-hover:text-white">
-                            +91 908 480 0496
-                        </span>
-                    </a>
-
-                    <div className="group flex w-fit flex-col gap-1">
-                        <span className="group-hover:text-malachite text-sm font-black tracking-widest text-white/40 transition-colors duration-200">
-                            OFFICE
-                        </span>
-                        <span className="font-bold text-white/80 transition-colors duration-200 group-hover:text-white">
-                            Ghaziabad, NCR, India
-                        </span>
+                        </a>
+                        <a href="tel:+919084800496">908-480-0496</a>
                     </div>
                 </div>
             </div>
 
             {/* Copyright */}
-            <div className="border-t border-white/5">
-                <div className="mx-auto max-w-7xl px-4 py-8">
-                    <div className="flex justify-between gap-6 text-sm font-semibold text-white/80 max-md:flex-col">
-                        <div className="flex flex-col items-center justify-center gap-x-2 sm:flex-row">
-                            <p>© {year} Tecorbitron Solutions Pvt. Ltd.</p>
-                            <p>All rights reserved.</p>
-                        </div>
-
-                        <div className="flex items-center justify-center gap-3">
-                            <Link
-                                href="/privacy-policy"
-                                className="transition-colors duration-200 hover:text-white hover:underline"
-                            >
-                                Privacy Policy
-                            </Link>
-                            <span className="block h-1 w-1 rounded-full bg-white/50" />
-                            <Link
-                                href="/terms"
-                                className="transition-colors duration-200 hover:text-white hover:underline"
-                            >
-                                Terms & Conditions
-                            </Link>
-                        </div>
-                    </div>
+            <div className="mt-12">
+                <div className="border-border mx-auto flex max-w-7xl justify-center border-t px-4 py-8">
+                    <small className="text-small">
+                        © {year} Tecorbitron Solutions Pvt. Ltd.
+                    </small>
                 </div>
             </div>
         </footer>

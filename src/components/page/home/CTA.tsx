@@ -4,51 +4,31 @@ import { ArrowRight, MessageCircle } from "lucide-react";
 export default function CTA() {
     return (
         <section
-            className="relative overflow-hidden px-4 py-24"
+            className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl px-4 py-24"
             style={{
-                background:
-                    "linear-gradient(135deg, #071e2d 0%, #0c3146 50%, #164965 100%)",
+                background: "linear-gradient(90deg, #DBFCFF 0%, #E3FFF0 100%)",
             }}
         >
-            {/* ── BACKGROUND EFFECTS ── */}
-            <div
-                className="pointer-events-none absolute inset-0"
-                style={{
-                    background:
-                        "radial-gradient(ellipse 60% 80% at 50% 50%, rgba(0,208,96,0.07) 0%, transparent 70%)",
-                }}
-            />
-            <div
-                className="pointer-events-none absolute inset-0 opacity-[0.03]"
-                style={{
-                    backgroundImage:
-                        "linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)",
-                    backgroundSize: "60px 60px",
-                }}
-            />
-
             {/* ── CONTENT ── */}
             <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center gap-6 text-center">
                 {/* Eyebrow */}
                 <div className="border-malachite/20 bg-malachite/10 inline-flex items-center gap-2 rounded-full border px-4 py-1.5">
                     <span className="bg-malachite h-1.5 w-1.5 animate-pulse rounded-full" />
-                    <span className="text-malachite text-xs font-bold tracking-widest uppercase">
+                    <span className="text-xs font-bold tracking-widest uppercase">
                         Let&apos;s Work Together
                     </span>
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl">
-                    Start Your Project Today <br />
-                    <span className="text-malachite text-4xl">
-                        Get a Free Consultation?
-                    </span>
+                <h2 className="text-4xl font-black tracking-tight sm:text-5xl lg:text-6xl">
+                    Start Your Project Today
                 </h2>
 
                 {/* Sub */}
-                <p className="max-w-xl text-base leading-relaxed font-bold text-white/80">
+                <p className="text-body max-w-xl leading-relaxed">
                     Tell us about your project and {"we'll"} get back to you
-                    within 24 hours. <br /> Free consultation, No strings attached.
+                    within 24 hours. <br /> Free consultation, No strings
+                    attached.
                 </p>
 
                 {/* CTAs */}
@@ -65,7 +45,7 @@ export default function CTA() {
                         href="https://wa.me/919084800496"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/10 px-7 py-3.5 text-sm font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
+                        className="inline-flex items-center gap-2 rounded-full border px-7 py-3.5 text-sm font-bold transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/15"
                     >
                         <MessageCircle size={15} />
                         WhatsApp Us

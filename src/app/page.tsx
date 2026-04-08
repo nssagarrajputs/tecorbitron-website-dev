@@ -3,10 +3,10 @@ import ServiceOverview from "@/components/page/home/ServiceOverview";
 import Solutions from "@/components/page/home/Solutions";
 import Technologies from "@/components/page/home/Technologies";
 import WhyUs from "@/components/page/home/WhyUs";
-import PortfolioPreview from "@/components/page/home/PortfolioPreview";
+import FeaturedProjects from "@/components/page/home/FeaturedProjects";
 import Testimonials from "@/components/page/home/Testimonials";
 import StatsBand from "@/components/page/home/StatsBand";
-import BlogTeaser from "@/components/page/home/BlogTeaser";
+import FeaturedBlogs from "@/components/page/home/FeaturedBlogs";
 import CTA from "@/components/page/home/CTA";
 import ClientLogoStripe from "@/components/page/home/ClientLogoStripe";
 import StructuredData, { homePageSchema } from "@/components/StructuredData";
@@ -21,10 +21,10 @@ export default function Home() {
             <Solutions />
             <Technologies />
             <StatsBand />
-            <PortfolioPreview />
+            <FeaturedProjects />
             <Testimonials />
             <WhyUs />
-            <BlogTeaser />
+            <FeaturedBlogs />
             <CTA />
         </main>
     );

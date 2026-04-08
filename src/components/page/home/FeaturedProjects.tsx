@@ -11,7 +11,7 @@ type PortfolioPreviewProject = {
     industries: string[];
 };
 
-export default async function PortfolioPreview() {
+export default async function FeaturedProjects() {
     const projects: PortfolioPreviewProject[] = await client.fetch(
         PORTFOLIO_PREVIEW_QUERY,
         {},

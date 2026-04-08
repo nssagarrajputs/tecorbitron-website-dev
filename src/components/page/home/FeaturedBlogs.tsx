@@ -23,7 +23,7 @@ function formatDate(dateStr: string) {
     });
 }
 
-export default async function BlogTeaser() {
+export default async function FeaturedBlogs() {
     const posts: BlogTeaserPost[] = await client.fetch(
         BLOG_TEASER_QUERY,
         {},
