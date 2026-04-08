@@ -11,23 +11,25 @@ export default function Footer() {
     const year = new Date().getFullYear();
 
     return (
-        <footer className="text-typo-secondary mt-40 select-none">
-            <div className="text-small mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-12 px-8">
+        <footer className="text-small text-typocolor-secondary mt-40 select-none">
+            <div className="mx-auto flex max-w-7xl flex-wrap items-start justify-between gap-8 gap-y-12 px-8">
                 {/* Intro */}
-                <div className="flex w-fit flex-col gap-5">
+                <div className="flex w-fit flex-col gap-4">
                     <Link href="/">
                         <Image
                             src={logo}
                             alt="Tecorbitron Solutions"
-                            width={180}
+                            width={220}
+                            className="opacity-85"
                         />
                     </Link>
                     <h3 className="max-w-sm">
-                        Next-Gen IT Solutions, Powered by AI.
+                        Next-Gen IT Solutions, Powered by AI. <br />
+                        #WeBuildBold
                     </h3>
 
                     {/* Social */}
-                    <div className="text-h4 text-typo-muted **:hover:text-primary-hover flex gap-6">
+                    <div className="text-h4 text-typocolor-muted **:hover:text-malachite flex gap-6">
                         <Link href="https://www.linkedin.com/company/tecorbitrons">
                             <FaLinkedinIn />
                         </Link>
@@ -50,7 +52,7 @@ export default function Footer() {
                 {/* Quick Links */}
                 <div>
                     <h3 className="mb-6 font-bold">Quick Links</h3>
-                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
                         <Link href="/">Home</Link>
                         <Link href="/about">About</Link>
                         <Link href="/services">Services</Link>
@@ -62,7 +64,7 @@ export default function Footer() {
                 {/* Important */}
                 <div>
                     <h3 className="mb-6 font-bold">Importants</h3>
-                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
                         <Link href="/contact">{"Let's Talk"}</Link>
                         <Link href="/careers">Career</Link>
                         <Link href="/privacy-policy">Privacy Policy</Link>
@@ -73,7 +75,7 @@ export default function Footer() {
                 {/* Get In Touch */}
                 <div>
                     <h3 className="mb-6 font-bold">Get In Touch</h3>
-                    <div className="**:hover:text-primary-hover flex flex-col gap-3 transition-all **:w-fit">
+                    <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
                         <span>Ghaziabad, NCR, India</span>
                         <a href="mailto:info@tecorbitron.com">
                             info@tecorbitron.com

@@ -11,7 +11,7 @@
     --color-malachite-rich: #00a34b;
     --color-malachite-deep: #007a38;
     --color-malachite-dim: #e6faf0;
-    --color-malachite-muted: rgba(0, 208, 96, 0.1);
+    --color-malachite-opac: rgba(0, 208, 96, 0.1);
 
     /* ── DEEPSPACE — Secondary Brand ── */
     --color-deepspace: #0c3146;
@@ -19,23 +19,44 @@
     --color-deepspace-rich: #164965;
     --color-deepspace-deep: #071e2d;
     --color-deepspace-dim: #ebf2f7;
-    --color-deepspace-muted: rgba(12, 49, 70, 0.08);
+    --color-deepspace-opac: rgba(12, 49, 70, 0.1);
 
     /* ── NEUTRALS ── */
     --color-white: #ffffff;
     --color-snow: #f8fafb;
     --color-surface: #f2f6f9;
-    --color-border: #dde6ed;
-    --color-border-strong: #c2d3df;
+
     --color-muted: #6b8a9a;
     --color-subtle: #3d5c6e;
-    --color-black: #060f14;
 
-    /* ── SEMANTIC ── */
+    --color-border: #dde6ed;
+    --color-border-strong: #c2d3df;
+
+    /* ── Highlights ── */
     --color-error: #ff383c;
     --color-success: #34c73a;
     --color-info: #0088ff;
     --color-warning: #ffcc00;
+
+    /* Semantic - usage-based */
+    --color-bkg-main: var(--color-white);
+    --color-bkg-primary: var(--color-snow);
+    --color-bkg-secondary: var(--color-surface);
+
+    --color-typocolor-heading: var(--color-deepspace-deep);
+    --color-typocolor-primary: var(--color-deepspace);
+    --color-typocolor-secondary: var(--color-subtle);
+    --color-typocolor-muted: var(--color-muted);
+
+    /* ── TYPOGRAPHY SCALE ── */
+    --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4.5rem); /* 48 → 72 */
+    --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
+    --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
+    --text-h4: clamp(1.25rem, 0.884rem + 1.563vw, 1.5rem); /* 20 → 24 */
+
+    --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
+    --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
+    --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
 }
 
 @layer base {
@@ -45,7 +66,7 @@
     }
 
     body {
-        @apply font-mulish text-deepspace bg-white;
+        @apply font-mulish text-typocolor-primary bg-bkg-main;
     }
 }
 
