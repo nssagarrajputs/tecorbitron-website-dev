@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
 
 const stats = [
-    { value: 6.3, suffix: "+", label: "Years of Excellence", decimal: true },
-    { value: 82, suffix: "+", label: "Projects Completed", decimal: false },
-    { value: 68, suffix: "+", label: "Happy Clients", decimal: false },
-    { value: 30, suffix: "+", label: "Hands-On Technologies", decimal: false },
+    { value: 6, suffix: "+", label: "Years of Expertise", decimal: false },
+    { value: 120, suffix: "+", label: "Projects Delivered", decimal: false },
+    { value: 100, suffix: "+", label: "Happy Clients", decimal: false },
+    { value: 30, suffix: "+", label: "Industries Covered", decimal: false },
 ];
 
 function CountUp({
@@ -64,14 +64,12 @@ function CountUp({
         </span>
     );
 }
-
 const containerVariants = {
     hidden: {},
     visible: {
         transition: { staggerChildren: 0.15 },
     },
 };
-
 const itemVariants = {
     hidden: { opacity: 0, y: 24 },
     visible: {
@@ -86,8 +84,8 @@ export default function StatsBand() {
     const inView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
-        <section className="bg-deepspace-dim px-4 py-16 sm:py-20">
-            <div className="mx-auto max-w-7xl">
+        <section className="h-breathing-6812 v-breathing-20">
+            <div className="section-vlex-gap mx-auto max-w-7xl">
                 <motion.div
                     ref={ref}
                     variants={containerVariants}
@@ -105,14 +103,14 @@ export default function StatsBand() {
                                     : ""
                             }`}
                         >
-                            <p className="text-malachite-soft text-4xl font-black tracking-tight sm:text-5xl">
+                            <p className="text-malachite-soft text-h2 font-black tracking-tight">
                                 <CountUp
                                     target={stat.value}
                                     suffix={stat.suffix}
                                     decimal={stat.decimal}
                                 />
                             </p>
-                            <p className="text-muted text-sm font-medium sm:text-base">
+                            <p className="text-typocolor-secondary text-body">
                                 {stat.label}
                             </p>
                         </motion.div>

@@ -133,7 +133,7 @@ export default function RootLayout({
                     href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
                 />
             </head>
-            <body className={`${mulish.variable} antialiased`}>
+            <body className={`${mulish.variable}`}>
                 <StructuredData data={globalSchema()} />
                 <SpeedInsights />
                 <Analytics />

@@ -1,6 +1,12 @@
 @import "tailwindcss";
 
 @theme {
+    --breakpoint-*: initial;
+    --breakpoint-sm: 40rem; /* 640 */
+    --breakpoint-md: 48rem; /* 768 */
+    --breakpoint-lg: 64rem; /* 1024 */
+    --breakpoint-xl: 80rem; /* 1280 */
+
     --font-mulish: var(--font-mulish);
 
     --color-*: initial;
@@ -39,16 +45,35 @@
     --color-warning: #ffcc00;
 
     /* Semantic - usage-based */
-    --color-bkg-main: var(--color-white);
     --color-bkg-primary: var(--color-snow);
     --color-bkg-secondary: var(--color-surface);
 
     --color-typocolor-heading: var(--color-deepspace-deep);
-    --color-typocolor-primary: var(--color-deepspace);
+    --color-typocolor-primary: var(--color-deepspace-rich);
     --color-typocolor-secondary: var(--color-subtle);
     --color-typocolor-muted: var(--color-muted);
 
     /* ── TYPOGRAPHY SCALE ── */
+
+    --text-*: initial;
+
+    --text-base: 1rem;
+    --text-base--line-height: calc(1.5 / 1);
+    --text-lg: 1.125rem;
+    --text-lg--line-height: calc(1.75 / 1.125);
+    --text-xl: 1.25rem;
+    --text-xl--line-height: calc(1.75 / 1.25);
+    --text-2xl: 1.5rem;
+    --text-2xl--line-height: calc(2 / 1.5);
+    --text-3xl: 1.875rem;
+    --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-4xl: 2.25rem;
+    --text-4xl--line-height: calc(2.5 / 2.25);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
+    --text-6xl: 3.75rem;
+    --text-6xl--line-height: 1;
+
     --text-h1: clamp(3rem, 1.536rem + 6.25vw, 4.5rem); /* 48 → 72 */
     --text-h2: clamp(2.25rem, 1.152rem + 4.688vw, 3rem); /* 36 → 48 */
     --text-h3: clamp(1.5rem, 0.402rem + 4.688vw, 2.25rem); /* 24 → 36 */
@@ -57,19 +82,52 @@
     --text-body: clamp(1rem, 0.817rem + 0.781vw, 1.125rem); /* 16 → 18 */
     --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
     --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
+
+    /* ── SHADOWS ── */
+    --shadow-soft: 0 8px 30px rgba(7, 30, 45, 0.06);
+    --shadow-card: 0 10px 30px rgba(12, 49, 70, 0.08);
+    --shadow-card-hover: 0 16px 40px rgba(12, 49, 70, 0.12);
+
+    /* ── TRANSITIONS ── */
+    --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 200ms;
+    --duration-normal: 300ms;
 }
 
 @layer base {
     html {
         scroll-behavior: smooth;
-        /* overscroll-behavior: none; */
+        text-size-adjust: 100%;
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
     }
 
     body {
-        @apply font-mulish text-typocolor-primary bg-bkg-main;
+        @apply font-mulish text-typocolor-primary bg-white antialiased;
+    }
+
+    hr {
+        border: 0;
+        border-top: 1px solid var(--color-border);
+    }
+
+    /* ::selection {
+        background: var(--color-malachite-opac);
+        color: var(--color-deepspace-deep);
+    } */
+
+    :focus-visible {
+        outline: 2px solid var(--color-malachite);
+        outline-offset: 2px;
+    }
+
+    ::placeholder {
+        color: var(--color-muted);
+        opacity: 1;
     }
 }
 
+/* ── DEBUG UTILITIES ── */
 @utility tb1 {
     @apply border-error border;
 }
@@ -81,6 +139,34 @@
 }
 @utility tb4 {
     @apply border-info border;
+}
+
+/*  */
+/*  */
+/*  */
+
+@utility flex-center {
+    @apply flex items-center justify-center;
+}
+
+@utility section-vlex-gap {
+    @apply flex flex-col gap-14 sm:gap-18 md:gap-20;
+}
+
+@utility h-breathing-468 {
+    @apply px-4 sm:px-6 md:px-8;
+}
+
+@utility h-breathing-6812 {
+    @apply px-6 sm:px-8 md:px-12;
+}
+
+@utility v-breathing-20 {
+    @apply py-20 sm:py-22 md:py-26;
+}
+
+@utility v-breathing-22 {
+    @apply py-22 sm:py-24 md:py-28;
 }
 
 /*  */
