@@ -2,8 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/client";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
-import SectionAction from "@/components/basic-ui/SectionAction";
 import { groq } from "next-sanity";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 export const PORTFOLIO_PREVIEW_QUERY = groq`
   *[_type == "project" && featured == true] | order(completedAt desc) [0...3] {
@@ -96,7 +96,11 @@ export default async function FeaturedProjects() {
                     ))}
                 </div>
 
-                <SectionAction url="/portfolio" name="View All Projects" />
+                <div className="mx-auto">
+                    <BrandBtn href="/portfolio" variant="secondary">
+                        View All Projects
+                    </BrandBtn>
+                </div>
             </div>
         </section>
     );

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { MapPin, Users, Star } from "lucide-react";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 export default function Hero() {
     return (
@@ -39,12 +40,12 @@ export default function Hero() {
                 </p>
 
                 {/* CTAs */}
-                <Link
-                    href="/start-your-project"
-                    className="border-malachite bg-malachite-soft hover:bg-malachite hover:shadow-malachite/20 text-body mt-4 rounded-full border-2 px-8 py-4 font-bold text-white transition-all duration-200 select-none hover:-translate-y-0.5 hover:text-white hover:shadow-lg active:translate-y-0 lg:px-12"
-                >
-                    Start Your Project
-                </Link>
+
+                <div className="mt-4">
+                    <BrandBtn href="/start-your-project" variant="primary">
+                        Start Your Project
+                    </BrandBtn>
+                </div>
 
                 {/* Trust Badges */}
                 <div className="flex-center my-12 gap-4 sm:gap-6">

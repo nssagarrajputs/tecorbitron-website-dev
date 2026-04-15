@@ -35,12 +35,10 @@ export default function Home() {
                 primaryAction={{
                     text: "Start Your Project",
                     href: "/start-your-project",
-                    icon: "ArrowRight",
                 }}
                 secondaryAction={{
                     text: "Chat on WhatsApp",
                     href: "https://wa.me/919084800496",
-                    icon: "MessageCircle",
                 }}
             />
         </main>

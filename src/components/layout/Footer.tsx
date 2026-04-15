@@ -5,7 +5,6 @@ import { FaLinkedinIn } from "react-icons/fa";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaFacebook } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
 
 export default function Footer() {
     const year = new Date().getFullYear();
@@ -20,7 +19,7 @@ export default function Footer() {
                             src={logo}
                             alt="Tecorbitron Solutions"
                             width={220}
-                            className="opacity-85 select-none"
+                            className="opacity-80 select-none"
                         />
                     </Link>
                     <h3 className="max-w-sm">
@@ -29,20 +28,17 @@ export default function Footer() {
                     </h3>
 
                     {/* Social */}
-                    <div className="text-h4 text-typocolor-muted **:hover:text-malachite flex gap-6">
+                    <div className="text-h4 text-typocolor-muted **:hover:text-malachite flex gap-4">
                         <Link href="https://www.linkedin.com/company/tecorbitrons">
                             <FaLinkedinIn />
-                        </Link>
-                        <Link href="https://www.facebook.com/tecorbitron">
-                            <FaFacebook />
                         </Link>
                         <Link href="https://www.instagram.com/tecorbitron">
                             <FaInstagram />
                         </Link>
-
-                        <Link href="https://www.youtube.com/@Tecorbitron">
-                            <FaYoutube />
+                        <Link href="https://www.facebook.com/tecorbitron">
+                            <FaFacebook />
                         </Link>
+
                         <Link href="https://wa.me/919084800496">
                             <FaWhatsapp />
                         </Link>

@@ -4,7 +4,7 @@ import software from "@/assets/home/services-card/custom-software.png";
 import ai from "@/assets/home/services-card/cloud-ai.png";
 import Image from "next/image";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
-import SectionAction from "@/components/basic-ui/SectionAction";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 // ── DATA ───────────────────────────────────────────
 const services = [
@@ -109,8 +109,11 @@ export default function CoreServices() {
                     ))}
                 </div>
 
-                {/* Bottom CTA */}
-                <SectionAction url="/services" name="View All Services" />
+                <div className="mx-auto">
+                    <BrandBtn href="/services" variant="secondary">
+                        View All Services
+                    </BrandBtn>
+                </div>
             </div>
         </section>
     );

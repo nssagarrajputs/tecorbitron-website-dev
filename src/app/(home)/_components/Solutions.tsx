@@ -9,7 +9,7 @@ import {
     GraduationCap,
 } from "lucide-react";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
-import SectionAction from "@/components/basic-ui/SectionAction";
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 const solution = [
     {
@@ -92,8 +92,11 @@ export default function Solutions() {
                     ))}
                 </div>
 
-                {/* ── BOTTOM CTA ── */}
-                <SectionAction url="/services" name="View All Solutions" />
+                <div className="mx-auto">
+                    <BrandBtn href="/services" variant="secondary">
+                        View All Solutions
+                    </BrandBtn>
+                </div>
             </div>
         </section>
     );

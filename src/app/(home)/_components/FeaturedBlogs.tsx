@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+
 import { client } from "@/sanity/client";
 import { BLOG_TEASER_QUERY } from "@/sanity/queries/blog";
 import Image from "next/image";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
-import SectionAction from "@/components/basic-ui/SectionAction";
+
+import BrandBtn from "@/components/basic-ui/BrandBtn";
 
 // Type
 type BlogTeaserPost = {
@@ -96,7 +97,11 @@ export default async function FeaturedBlogs() {
                     ))}
                 </div>
 
-                <SectionAction url="/blog" name="View All Posts" />
+                <div className="mx-auto">
+                    <BrandBtn href="/blog" variant="secondary">
+                        View All Blogs
+                    </BrandBtn>
+                </div>
             </div>
         </section>
     );
