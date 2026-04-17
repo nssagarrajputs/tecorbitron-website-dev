@@ -14,7 +14,6 @@ const navLinks = [
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
-    { label: "Start Project*", href: "/start-your-project" },
 ];
 
 const mobNavLinks = [
@@ -23,8 +22,7 @@ const mobNavLinks = [
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
     { label: "Blog", href: "/blog" },
-    { label: "Start Project*", href: "/start-your-project" },
-    { label: "Contact", href: "/contact" },
+    { label: "Contact Us", href: "/contact" },
 ];
 
 const sidebarVariants = {
@@ -148,7 +146,7 @@ export default function Header() {
                                     href="/contact"
                                     className="bg-deepspace hover:bg-malachite inline-block rounded-sm px-4 py-2 text-base font-semibold text-white transition-colors duration-200"
                                 >
-                                    Let&apos;s Talk
+                                    Let&apos;s Connect
                                 </Link>
                             </motion.div>
                         </div>

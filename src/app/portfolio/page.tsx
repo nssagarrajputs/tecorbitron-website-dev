@@ -48,9 +48,9 @@ export default async function PortfolioPage() {
         <main>
             <PageHero
                 eyebrow="Our Work"
-                title="Projects That Speak for Themselves"
-                highlight="Themselves"
-                description="Showcasing our proudest projects and the results we delivered for clients across India and beyond."
+                title="Projects That Deliver Results"
+                highlight="Deliver Results"
+                description="A curated selection of our work across web, mobile, software, and AI — each project measured by real business outcomes.."
             />
             <ProjectList featured={featured} rest={rest} />
         </main>

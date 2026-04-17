@@ -32,7 +32,7 @@ export default async function RecentBlogs() {
         <section className="bg-white px-4 pb-10">
             <div className="mx-auto max-w-5xl pt-8 pb-16">
                 <h2 className="mb-8 text-2xl font-black">
-                    Recently Added <span className="text-malachite">Blogs</span>
+                    Recently <span className="text-malachite">Published</span>
                 </h2>
 
                 <div className="grid grid-cols-1 gap-12 md:grid-cols-2">

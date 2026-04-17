@@ -40,10 +40,10 @@ export default async function Blog() {
     return (
         <main>
             <PageHero
-                eyebrow="Our Blog"
+                eyebrow="INSIGHTS & EXPERTISE"
                 title="The Knowledge Nexus"
                 highlight="Nexus"
-                description="Ideas, Insights & Tech Deep-Dives."
+                description="Practical insights on web development, SEO, AI, and digital strategy — written by the Tecorbitron team."
             />
             <RecentBlogs />
             <BlogListing posts={posts} categories={categories} />

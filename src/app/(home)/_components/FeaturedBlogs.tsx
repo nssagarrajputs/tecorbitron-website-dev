@@ -37,9 +37,9 @@ export default async function FeaturedBlogs() {
         <section className="h-breathing-6812 v-breathing-20">
             <div className="section-vlex-gap mx-auto max-w-7xl">
                 <SectionHeader
-                    eyebrow="Blog"
+                    eyebrow="INSIGHTS"
                     heading="Insights That Help You Grow"
-                    highlight="Grow"
+                    highlight="Help You Grow"
                     support=""
                 />
 

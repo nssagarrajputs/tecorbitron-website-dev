@@ -48,8 +48,8 @@ export default function Process() {
             <div className="section-vlex-gap mx-auto max-w-7xl">
                 <SectionHeader
                     eyebrow="Our Process"
-                    heading="The 4D's Principle"
-                    highlight="Principle"
+                    heading="The 4D's Framework"
+                    highlight="Framework"
                     support="We transform ideas into working products through structured Discovery, thoughtful Design, Development, and seamless Delivery."
                 />
 

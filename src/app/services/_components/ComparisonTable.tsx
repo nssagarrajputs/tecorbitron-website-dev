@@ -88,7 +88,7 @@ export default function ComparisonTable() {
                     </div>
                     <h2 className="text-4xl font-black tracking-tight text-white sm:text-5xl">
                         Tecorbitron vs{" "}
-                        <span className="text-malachite">The Alternatives</span>
+                        <span className="text-malachite">Alternatives</span>
                     </h2>
                     <p className="max-w-xl text-base leading-relaxed text-white/50">
                         See how we stack up against freelancers and big

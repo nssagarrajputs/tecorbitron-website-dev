@@ -63,7 +63,7 @@ export default function Testimonials() {
                     eyebrow="Testimonials"
                     heading="What Our Clients Say"
                     highlight="Clients Say"
-                    support="Real feedback from real businesses we've worked with."
+                    support="Verified feedback from clients across industries — in their own words."
                 />
 
                 <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">

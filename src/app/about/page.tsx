@@ -54,8 +54,8 @@ export default function About() {
         <main>
             <PageHero
                 eyebrow="who we are"
-                title="Built on Ambition"
-                highlight="Ambition"
+                title="Built on Ambition. Driven by Results."
+                highlight="Driven by Results."
                 description="Discover our journey, mission, and the team behind our
                     innovative solutions — dedicated to transforming ideas into
                     exceptional experiences."
@@ -67,15 +67,15 @@ export default function About() {
             <TrustedPartners />
             <CTAFormat
                 eypill="Work With Us"
-                heading="Want to Work With Us?"
-                highlight="With Us?"
-                bodyText="We're always open to new projects and long-term partnerships. Tell us about your idea and let's see if we're a good fit."
+                heading="Have a Project in Mind?"
+                highlight="Mind?"
+                bodyText="We're always open to new projects and partnerships. Tell us what you're building and we'll tell you honestly if we're the right fit."
                 primaryAction={{
-                    text: "Start a Conversation",
-                    href: "/contact",
+                    text: "View Our Services",
+                    href: "/services",
                 }}
                 secondaryAction={{
-                    text: "Whatsapp Us",
+                    text: "Contact Us",
                     href: "/contact",
                 }}
             />

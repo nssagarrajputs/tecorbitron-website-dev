@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { MapPin, Users, Star } from "lucide-react";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 
@@ -42,7 +41,7 @@ export default function Hero() {
                 {/* CTAs */}
 
                 <div className="mt-4">
-                    <BrandBtn href="/start-your-project" variant="primary">
+                    <BrandBtn href="/contact" variant="primary">
                         Start Your Project
                     </BrandBtn>
                 </div>

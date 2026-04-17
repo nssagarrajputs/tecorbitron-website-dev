@@ -42,8 +42,8 @@ export default function WhoWeWorkWith() {
             <div className="section-vlex-gap mx-auto max-w-7xl">
                 <SectionHeader
                     eyebrow="Clients scope"
-                    heading="Cover Every Stage of Business"
-                    highlight="Business"
+                    heading="Built for Every Stage of Business"
+                    highlight="Stage of Business"
                     support="Whether you're launching your first product or
                         scaling your tenth — we have the right approach for
                         where you are right now."

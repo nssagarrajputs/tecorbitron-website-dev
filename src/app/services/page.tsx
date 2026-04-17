@@ -108,10 +108,10 @@ export default function Services() {
         <main>
             <StructuredData data={servicesSchema()} />
             <PageHero
-                eyebrow="What We Do"
-                title="Services Built to Move"
-                highlight="Move"
-                description="From idea to execution — technical services drafted to your goals, timeline, and budget. No cookie-cutter solutions, only what works for you."
+                eyebrow="What We OFFER"
+                title="Services Built Around Your Goals"
+                highlight="Your Goals"
+                description="Technical services scoped to your business — not cookie-cutter packages. From first website to enterprise software, work within your timeline and budget."
             />
             <ServicesDetail />
             <Process />
@@ -126,16 +126,16 @@ export default function Services() {
                 items={faqdata}
             />
             <CTAFormat
-                eypill="Not Sure Where to Start?"
-                heading="Let's Figure It Out Together"
-                highlight="Together"
-                bodyText="Book a free 30-minute discovery call. No sales pitch — just an honest conversation about your goals and how we can help."
+                eypill="FREE CONSULTATION"
+                heading="Not Sure Where to Begin?"
+                highlight="Begin?"
+                bodyText="Book a free 30-minute discovery call. No sales pitch — just an honest conversation about your goals and the best way to move forward."
                 primaryAction={{
                     text: "Book Discovery Call",
-                    href: "/start-your-project",
+                    href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "View Portfolio",
+                    text: "View Our Work",
                     href: "/portfolio",
                 }}
             />

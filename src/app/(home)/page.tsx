@@ -26,18 +26,16 @@ export default function Home() {
             <FeaturedBlogs />
 
             <CTAFormat
-                eypill="LET'S TALK"
-                heading="Ready to Build Something Better"
-                highlight="Better"
-                bodyText="Tell us about your project and we'll get back to you
-                    within 24 hours. Free consultation, No strings
-                    attached."
+                eypill="GET STARTED"
+                heading="Ready to Build Something That Works?"
+                highlight="Something That Works?"
+                bodyText="Share your project with us. We'll respond within 24 hours with a clear plan. Free consultation, No strings attached."
                 primaryAction={{
                     text: "Start Your Project",
-                    href: "/start-your-project",
+                    href: "/contact",
                 }}
                 secondaryAction={{
-                    text: "Chat on WhatsApp",
+                    text: "WhatsApp Us",
                     href: "https://wa.me/919084800496",
                 }}
             />

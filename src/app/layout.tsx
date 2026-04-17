@@ -134,6 +134,7 @@ export default function RootLayout({
                 <GoogleAnalytics
                     gaId={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_M_ID!}
                 />
+
                 <Header />
                 {children}
                 <Footer />

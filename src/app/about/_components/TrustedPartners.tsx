@@ -34,13 +34,10 @@ export default function TrustedPartners() {
         <section className="h-breathing-468 v-breathing-20">
             <div className="section-vlex-gap mx-auto max-w-7xl">
                 <SectionHeader
-                    eyebrow="Trusted Partners"
+                    eyebrow="TECHNOLOGY PARTNERS"
                     heading="Integration Across Platforms"
                     highlight="Platforms"
-                    support="We proudly collaborate with globally recognized
-                        partners, sharing expertise and resources to deliver
-                        innovative, future-ready solutions. Together, we strive
-                        to exceed expectations."
+                    support="We work with globally recognised platforms and cloud providers — giving every project enterprise-grade reliability from day one."
                 />
 
                 {/* ── FLAT GRID ── */}
@@ -71,8 +68,8 @@ export default function TrustedPartners() {
                 </div>
 
                 <p className="text-muted mt-8 text-center text-xs font-medium">
-                    Partnership network continuously growing — reach out to
-                    explore collaboration opportunities.
+                    Partner network continues to grow — reach out to explore
+                    collaboration opportunities.
                 </p>
             </div>
         </section>

@@ -37,8 +37,7 @@ export default async function FeaturedProjects() {
                     eyebrow="Case studies"
                     heading="Real Work, Real Result"
                     highlight="Real Result"
-                    support="A few of our recent projects — each one built with care,
-                        precision, and a focus on real business outcomes."
+                    support="A curated selection of our recent work — each project built with precision and measured by business outcomes."
                 />
 
                 {/* ── GRID ── */}

@@ -3,18 +3,18 @@ import { Zap, UserCheck, HandHeart } from "lucide-react";
 const items = [
     {
         icon: Zap,
-        title: "Quick Response",
-        desc: "We typically reply within an hour on business days, ensuring prompt NDA signing and seamless scheduling for discussions.",
+        title: "Fast Response",
+        desc: "We respond to all inquiries within one business day. For time-sensitive projects, WhatsApp is the fastest way to reach us.",
     },
     {
         icon: UserCheck,
-        title: "Personalized Approach",
-        desc: "You'll work directly with experienced specialists who understand your domain and business needs.",
+        title: "Direct Approach",
+        desc: "You work directly with experienced specialists - understand your domain and business needs, no handoffs, no lost context.",
     },
     {
         icon: HandHeart,
-        title: "No Pressure",
-        desc: "We focus on guiding you at your pace — offering insights and solutions only when you're ready to move forward.",
+        title: "Zero Pressure",
+        desc: "We focus on helping you make the right decision for your business — even if that means referring you elsewhere.",
     },
 ];
 
@@ -26,7 +26,7 @@ export default function TrustSignals() {
                     {items.map(({ icon: Icon, title, desc }) => (
                         <div
                             key={title}
-                            className=" flex flex-col gap-4 rounded-2xl p-6"
+                            className="flex flex-col gap-4 rounded-2xl p-6"
                         >
                             <div className="bg-malachite-dim flex h-11 w-11 items-center justify-center rounded-xl">
                                 <Icon

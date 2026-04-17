@@ -28,11 +28,10 @@ export default function CareersPage() {
     return (
         <main>
             <PageHero
-                eyebrow="Careers"
-                title="Build the Future With Us"
-                highlight="With Us"
-                description="
-We're a small but ambitious team building next-gen digital products. If you love technology, care about craft, and want your work to actually matter — you'll fit right in."
+                eyebrow="JOIN THE TEAM"
+                title="Build Something That Matters"
+                highlight="That Matters"
+                description="We're a focused, ambitious team building next-generation digital products. If you care about craft and want your work to have real impact — you'll fit right in."
             />
             <WhyJoinUs />
             <OpenPositions />

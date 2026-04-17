@@ -1,5 +1,6 @@
 "use client";
 
+import SectionHeader from "@/components/basic-ui/SectionHeader";
 import { useState } from "react";
 
 type FormData = {
@@ -79,13 +80,13 @@ export default function ProjectInquiry() {
                         </div>
 
                         <h3 className="text-h3 text-typocolor-primary font-black tracking-tight">
-                            Inquiry sent successfully
+                            Inquiry Received
                         </h3>
 
                         <p className="text-body text-typocolor-secondary mt-4 max-w-xl leading-relaxed">
-                            Thanks for sharing your project details. Our team
-                            will review your inquiry and get back to you with
-                            the best next step.
+                            Thank you for sharing your project details. Our team
+                            will review your submission and reach out within 24
+                            hours with the best next step.
                         </p>
                     </div>
                 </div>
@@ -96,10 +97,12 @@ export default function ProjectInquiry() {
     return (
         <section className="v-breathing-20 h-breathing-468">
             <div className="section-vlex-gap mx-auto max-w-4xl">
-                <p className="text-h4 text-typocolor-secondary font-semibold">
-                    Share a few details about what you need. We’ll review it and
-                    get back to you.
-                </p>
+                <SectionHeader
+                    eyebrow="start your project"
+                    heading="Let’s talk about what you’re building"
+                    highlight="building"
+                    support="Share a few details about your project. We'll review everything and respond within 24 hours."
+                />
                 <form
                     onSubmit={handleSubmit}
                     className="grid grid-cols-1 gap-5 md:grid-cols-2"

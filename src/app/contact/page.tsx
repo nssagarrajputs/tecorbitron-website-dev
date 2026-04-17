@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import Channel from "@/app/contact/_components/Channel";
+import Channel from "./_components/Channel";
 import TrustSignals from "@/app/contact/_components/TrustSignals";
 import StructuredData, { contactSchema } from "@/components/StructuredData";
 import PageHero from "@/components/basic-ui/PageHero";
-import BookDiscoveryCall from "../start-your-project/_components/BookDiscoveryCall";
+import BookDiscoveryCall from "./_components/BookDiscoveryCall";
 import FAQSection from "@/components/templetes/FAQFormat";
+import ProjectInquiry from "./_components/ProjectInquiry";
+import CTAFormat from "@/components/templetes/CTAFormat";
 
 export const metadata: Metadata = {
     title: "Contact Us",
@@ -94,16 +96,29 @@ export default function Contact() {
                 highlight="Connect"
                 description="Tell us about your project and we'll get back to you within 24 hours. Free consultation, no strings attached."
             />
+
             <Channel />
+            <ProjectInquiry />
+
             <BookDiscoveryCall />
             <TrustSignals />
             <FAQSection
                 bg="bg-white"
-                eyebrow="FAQs"
+                eyebrow="COMMON QUESTIONS"
                 heading="Before You Reach Out"
                 highlight="Out"
                 support="Quick answers to the most common questions we get."
                 items={faqdata}
+            />
+            <CTAFormat
+                eypill="get in touch"
+                heading="Need another way to reach us?"
+                highlight="reach us?"
+                bodyText="Visit our contact page for phone, email, WhatsApp, and office details."
+                primaryAction={{
+                    text: "Contact Us",
+                    href: "/contact",
+                }}
             />
         </main>
     );

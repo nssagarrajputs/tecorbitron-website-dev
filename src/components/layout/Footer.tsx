@@ -69,7 +69,6 @@ export default function Footer() {
                 <div>
                     <h3 className="mb-6 font-bold">Quick Links</h3>
                     <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
-                        <Link href="/">Home</Link>
                         <Link href="/about">About</Link>
                         <Link href="/services">Services</Link>
                         <Link href="/portfolio">Portfolio</Link>
@@ -81,8 +80,7 @@ export default function Footer() {
                 <div>
                     <h3 className="mb-6 font-bold">Importants</h3>
                     <div className="**:hover:text-malachite flex flex-col gap-3 transition-all **:w-fit">
-                        <Link href="/start-your-project">Start Project</Link>
-                        <Link href="/contact">{"Let's Talk"}</Link>
+                        <Link href="/contact">Contact Us</Link>
                         <Link href="/careers">Career</Link>
                         <Link href="/privacy-policy">Privacy Policy</Link>
                         <Link href="/terms">Terms</Link>

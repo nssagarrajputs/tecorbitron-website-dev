@@ -27,9 +27,9 @@ export default function BookDiscoveryCall() {
                     </h2>
 
                     <p className="text-body text-typocolor-secondary mt-4 leading-relaxed">
-                        Prefer to talk first? Pick a time that works for you and
-                        we’ll discuss your goals, requirements, and the best way
-                        to move forward.
+                        {
+                            "Prefer to talk first? Choose a time that works for you — we'll discuss your goals, requirements, and the clearest path forward."
+                        }
                     </p>
 
                     <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
