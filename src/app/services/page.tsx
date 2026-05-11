@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import StructuredData, { servicesSchema } from "@/components/StructuredData";
 import PageHero from "@/components/basic-ui/PageHero";
-import ServicesDetail from "@/app/services/_components/ServicesDetail";
 import FAQFormat from "@/components/templetes/FAQFormat";
 import CTAFormat from "@/components/templetes/CTAFormat";
 import Industries from "./_components/Industries";
+import MainServices from "./_components/MainServices";
+import AllSolutions from "./_components/AllSolutions";
 
 export const metadata: Metadata = {
     title: "Web, App & Software Development Services",
@@ -111,7 +112,8 @@ export default function Services() {
                 highlight="Your Goals"
                 description="Technical services scoped to your business — not cookie-cutter packages. From first website to enterprise software, work within your timeline and budget."
             />
-            {/* <ServicesDetail /> */}
+            <MainServices />
+            <AllSolutions />
             <Industries />
 
             <FAQFormat

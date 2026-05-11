@@ -1,26 +1,26 @@
 "use client";
 import Image from "next/image";
 
-import logo1 from "@/assets/home/client-stripe/1.png";
-import logo2 from "@/assets/home/client-stripe/2.svg";
-import logo3 from "@/assets/home/client-stripe/3.png";
-import logo4 from "@/assets/home/client-stripe/4.png";
-import logo5 from "@/assets/home/client-stripe/5.svg";
-import logo6 from "@/assets/home/client-stripe/6.png";
-import logo7 from "@/assets/home/client-stripe/7.png";
-import logo8 from "@/assets/home/client-stripe/8.png";
-import logo9 from "@/assets/home/client-stripe/9.png";
-import logo10 from "@/assets/home/client-stripe/10.png";
-import logo11 from "@/assets/home/client-stripe/11.svg";
-import logo12 from "@/assets/home/client-stripe/12.svg";
-import logo13 from "@/assets/home/client-stripe/13.svg";
-import logo14 from "@/assets/home/client-stripe/14.png";
-import logo15 from "@/assets/home/client-stripe/15.png";
-import logo16 from "@/assets/home/client-stripe/16.webp";
-import logo17 from "@/assets/home/client-stripe/17.png";
-import logo18 from "@/assets/home/client-stripe/18.svg";
-import logo19 from "@/assets/home/client-stripe/19.webp";
-import logo20 from "@/assets/home/client-stripe/20.svg";
+import logo1 from "@/assets/client-stripe/1.png";
+import logo2 from "@/assets/client-stripe/2.svg";
+import logo3 from "@/assets/client-stripe/3.png";
+import logo4 from "@/assets/client-stripe/4.png";
+import logo5 from "@/assets/client-stripe/5.svg";
+import logo6 from "@/assets/client-stripe/6.png";
+import logo7 from "@/assets/client-stripe/7.png";
+import logo8 from "@/assets/client-stripe/8.png";
+import logo9 from "@/assets/client-stripe/9.png";
+import logo10 from "@/assets/client-stripe/10.png";
+import logo11 from "@/assets/client-stripe/11.svg";
+import logo12 from "@/assets/client-stripe/12.svg";
+import logo13 from "@/assets/client-stripe/13.svg";
+import logo14 from "@/assets/client-stripe/14.png";
+import logo15 from "@/assets/client-stripe/15.png";
+import logo16 from "@/assets/client-stripe/16.webp";
+import logo17 from "@/assets/client-stripe/17.png";
+import logo18 from "@/assets/client-stripe/18.svg";
+import logo19 from "@/assets/client-stripe/19.webp";
+import logo20 from "@/assets/client-stripe/20.svg";
 
 const logosRow1 = [
     { name: "Client One", src: logo1 },

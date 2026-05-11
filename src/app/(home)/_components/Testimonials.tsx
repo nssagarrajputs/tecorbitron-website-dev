@@ -2,7 +2,7 @@
 import { Star, Verified } from "lucide-react";
 import Image from "next/image";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
-import DefaultAvatar from "@/assets/home/testimonials/default-avatar.jpg";
+import DefaultAvatar from "@/assets/clients-testimonials/default-avatar.jpg";
 
 const testimonials = [
     {

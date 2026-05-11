@@ -93,8 +93,8 @@ export default function Solutions() {
                 </div>
 
                 <div className="mx-auto">
-                    <BrandBtn href="/services" variant="secondary">
-                        View All Solutions
+                    <BrandBtn href="/contact" variant="secondary">
+                        Start Your Project
                     </BrandBtn>
                 </div>
             </div>
