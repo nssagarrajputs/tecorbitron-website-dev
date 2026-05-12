@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import Channel from "./_components/Channel";
-import TrustSignals from "@/app/contact/_components/TrustSignals";
+
 import StructuredData, { contactSchema } from "@/components/StructuredData";
 import PageHero from "@/components/basic-ui/PageHero";
+import ProjectInquiry from "./_components/ProjectInquiry";
+import WaysToConnect from "./_components/WaysToConnect";
 import BookDiscoveryCall from "./_components/BookDiscoveryCall";
 import FAQSection from "@/components/templetes/FAQFormat";
-import ProjectInquiry from "./_components/ProjectInquiry";
-import CTAFormat from "@/components/templetes/CTAFormat";
 
 export const metadata: Metadata = {
     title: "Contact Us",
@@ -97,11 +96,10 @@ export default function Contact() {
                 description="Tell us about your project and we'll get back to you within 24 hours. Free consultation, no strings attached."
             />
 
-            <Channel />
             <ProjectInquiry />
-
+            <WaysToConnect />
             <BookDiscoveryCall />
-            <TrustSignals />
+
             <FAQSection
                 bg="bg-white"
                 eyebrow="COMMON QUESTIONS"
@@ -109,20 +107,6 @@ export default function Contact() {
                 highlight="Out"
                 support="Quick answers to the most common questions we get."
                 items={faqdata}
-            />
-            <CTAFormat
-                eypill="Get Started"
-                heading="Tell Us What You Need"
-                highlight="You Need"
-                bodyText="Share your goals, project scope, or current challenges and our team will get back to you with the right next steps."
-                primaryAction={{
-                    text: "Explore Services",
-                    href: "/services",
-                }}
-                secondaryAction={{
-                    text: "View Our Work",
-                    href: "/portfolio",
-                }}
             />
         </main>
     );

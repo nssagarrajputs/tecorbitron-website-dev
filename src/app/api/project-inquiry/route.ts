@@ -17,10 +17,10 @@ export async function POST(req: Request) {
         }
 
         await resend.emails.send({
-            from: "Tecorbitron <noreply@yourdomain.com>",
+            from: "Tecorbitron <noreply@tecorbitron.com>",
             to: process.env.CONTACT_EMAIL || "info@tecorbitron.com",
             replyTo: email,
-            subject: `New Project Inquiry from ${name}`,
+            subject: `TSPL Project Inquiry - ${name}`,
             html: `
                 <div style="font-family: Arial, sans-serif; line-height: 1.6; color: #0C3146;">
                     <h2 style="margin-bottom: 16px;">New Project Inquiry</h2>
