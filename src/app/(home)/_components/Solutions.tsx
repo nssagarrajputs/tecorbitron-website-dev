@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const solution = [
     {
@@ -64,40 +65,35 @@ const solution = [
 
 export default function Solutions() {
     return (
-        <section className="h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Solutions"
-                    heading="Built For Real Business Need"
-                    highlight="Business Need"
-                    support="From customer-facing platforms to internal systems, we build digital solutions tailored to how your business runs, serves, and scales."
-                />
+        <SectionContainer
+            eyebrow="Solutions"
+            heading="Built For Real Business Need"
+            highlight="Business Need"
+            support="From customer-facing platforms to internal systems, we build digital solutions tailored to how your business runs, serves, and scales."
+        >
+            <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                {solution.map(({ title, icon: Icon, description }) => (
+                    <div
+                        key={title}
+                        className="cardbox p-6"
+                    >
+                        <Icon size={40} strokeWidth={1} />
 
-                {/* ── GRID ── */}
-                <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-                    {solution.map(({ title, icon: Icon, description }) => (
-                        <div
-                            key={title}
-                            className="bg-bkg-primary hover:border-malachite rounded-4 border-border border p-6"
-                        >
-                            <Icon size={40} strokeWidth={1} />
-
-                            <h3 className="text-body my-4 font-semibold">
-                                {title}
-                            </h3>
-                            <p className="text-small text-typocolor-muted">
-                                {description}
-                            </p>
-                        </div>
-                    ))}
-                </div>
-
-                <div className="mx-auto">
-                    <BrandBtn href="/contact" variant="secondary">
-                        Start Your Project
-                    </BrandBtn>
-                </div>
+                        <h3 className="text-body my-4 font-semibold">
+                            {title}
+                        </h3>
+                        <p className="text-small text-typocolor-muted">
+                            {description}
+                        </p>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            <div className="mx-auto">
+                <BrandBtn href="/contact" variant="secondary">
+                    Start Your Project
+                </BrandBtn>
+            </div>
+        </SectionContainer>
     );
 }

@@ -1,9 +1,10 @@
 import { MapPin, Users, Star } from "lucide-react";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import Eypill from "@/components/basic-ui/Eypill";
 
 export default function Hero() {
     return (
-        <section className="h-breathing-468 relative min-h-screen pt-32">
+        <section className="h-breathing relative min-h-screen pt-32">
             {/* Radial glow center */}
             <div
                 className="pointer-events-none absolute inset-0"
@@ -15,13 +16,7 @@ export default function Hero() {
 
             {/* ── CONTENT ── */}
             <div className="relative z-10 mx-auto flex max-w-5xl flex-col items-center gap-6 text-center">
-                {/* Eyebrow */}
-                <div className="border-malachite-soft bg-malachite-opac flex-center gap-2 rounded-full border px-4 py-1.5 select-none">
-                    <span className="bg-malachite h-1.5 w-1.5 rounded-full" />
-                    <span className="text-malachite text-xmall font-bold tracking-wider">
-                        FOR STARTUPS AND BUSINESS
-                    </span>
-                </div>
+                <Eypill text="FOR STARTUPS AND BUSINESS" />
 
                 {/* Headline */}
                 <h1 className="text-h1 leading-tight font-light tracking-tight">

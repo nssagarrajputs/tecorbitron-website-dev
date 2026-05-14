@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { client } from "@/sanity/client";
-import SectionHeader from "@/components/basic-ui/SectionHeader";
 import { groq } from "next-sanity";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 export const PORTFOLIO_PREVIEW_QUERY = groq`
   *[_type == "project" && featured == true] | order(completedAt desc) [0...3] {
@@ -31,76 +31,70 @@ export default async function FeaturedProjects() {
     );
 
     return (
-        <section className="bg-bkg-primary h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Case studies"
-                    heading="Real Work, Real Result"
-                    highlight="Real Result"
-                    support="A curated selection of our recent work — each project built with precision and measured by business outcomes."
-                />
-
-                {/* ── GRID ── */}
-                <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
-                    {projects.map((project) => (
-                        <div
-                            key={project.slug}
-                            className="shadow-card mx-auto flex max-w-120 flex-col overflow-hidden rounded-lg bg-white transition-all duration-300"
-                        >
-                            {/* Thumbnail */}
-                            <div className="bg-deepspace relative h-52 overflow-hidden">
-                                {project.thumbnail ? (
-                                    <Image
-                                        src={project.thumbnail}
-                                        alt={project.projectName}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                        sizes="(max-width: 768px) 100vw, 33vw"
+        <SectionContainer
+            eyebrow="Case studies"
+            heading="Real Work, Real Result"
+            highlight="Real Result"
+            support="A curated selection of our recent work — each project built with precision and measured by business outcomes."
+        >
+            {/* ── GRID ── */}
+            <div className="grid grid-cols-1 gap-6 sm:gap-8 lg:grid-cols-3">
+                {projects.map((project) => (
+                    <div
+                        key={project.slug}
+                        className="cardbox mx-auto flex max-w-120 flex-col overflow-hidden"
+                    >
+                        {/* Thumbnail */}
+                        <div className="bg-deepspace relative h-52 overflow-hidden">
+                            {project.thumbnail ? (
+                                <Image
+                                    src={project.thumbnail}
+                                    alt={project.projectName}
+                                    fill
+                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, 33vw"
+                                />
+                            ) : (
+                                <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
+                                    <div
+                                        className="absolute inset-0 opacity-10"
+                                        style={{
+                                            backgroundImage:
+                                                "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
+                                            backgroundSize: "24px 24px",
+                                        }}
                                     />
-                                ) : (
-                                    <div className="from-deepspace to-deepspace-soft absolute inset-0 bg-linear-to-br">
-                                        <div
-                                            className="absolute inset-0 opacity-10"
-                                            style={{
-                                                backgroundImage:
-                                                    "radial-gradient(circle, rgba(255,255,255,0.4) 1px, transparent 1px)",
-                                                backgroundSize: "24px 24px",
-                                            }}
-                                        />
-                                        <span className="absolute inset-0 flex items-center justify-center text-4xl font-black text-white/20">
-                                            {project.projectName.charAt(0)}
-                                        </span>
-                                    </div>
-                                )}
-                            </div>
-
-                            {/* Content */}
-                            <div className="flex flex-col gap-2 p-6">
-                                <h3 className="text-h4 font-black">
-                                    {project.projectName}
-                                </h3>
-
-                                <p className="line-clamp-2">
-                                    {project.summary}
-                                </p>
-
-                                <Link
-                                    href={`/portfolio/${project.slug}`}
-                                    className="border-border-strong text-small mt-4 w-fit rounded-md border px-4 py-2 select-none"
-                                >
-                                    View case study
-                                </Link>
-                            </div>
+                                    <span className="absolute inset-0 flex items-center justify-center text-4xl font-black text-white/20">
+                                        {project.projectName.charAt(0)}
+                                    </span>
+                                </div>
+                            )}
                         </div>
-                    ))}
-                </div>
 
-                <div className="mx-auto">
-                    <BrandBtn href="/portfolio" variant="secondary">
-                        View All Projects
-                    </BrandBtn>
-                </div>
+                        {/* Content */}
+                        <div className="flex flex-col gap-2 p-6">
+                            <h3 className="text-h4 font-black">
+                                {project.projectName}
+                            </h3>
+
+                            <p className="line-clamp-2">{project.summary}</p>
+
+                            <Link
+                                href={`/portfolio/${project.slug}`}
+                                className="text-small rounded-2 shadow-soft mt-4 w-fit border px-4 py-2 select-none"
+                            >
+                                View case study
+                            </Link>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </section>
+
+            <div className="mx-auto">
+                <BrandBtn href="/portfolio" variant="secondary">
+                    View All Projects
+                </BrandBtn>
+            </div>
+        </SectionContainer>
     );
 }

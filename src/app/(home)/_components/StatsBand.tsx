@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { motion, useInView } from "framer-motion";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const stats = [
     { value: 6, suffix: "+", label: "Years of Expertise", decimal: false },
@@ -84,39 +85,37 @@ export default function StatsBand() {
     const inView = useInView(ref, { once: true, margin: "-80px" });
 
     return (
-        <section className="h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <motion.div
-                    ref={ref}
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate={inView ? "visible" : "hidden"}
-                    className="grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-8 lg:grid-cols-4"
-                >
-                    {stats.map((stat, index) => (
-                        <motion.div
-                            key={stat.label}
-                            variants={itemVariants}
-                            className={`flex flex-col items-center gap-2 text-center ${
-                                index < stats.length - 1
-                                    ? "lg:border-border-strong lg:border-r"
-                                    : ""
-                            }`}
-                        >
-                            <p className="text-malachite-soft text-h2 font-black tracking-tight">
-                                <CountUp
-                                    target={stat.value}
-                                    suffix={stat.suffix}
-                                    decimal={stat.decimal}
-                                />
-                            </p>
-                            <p className="text-typocolor-secondary text-body">
-                                {stat.label}
-                            </p>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
+        <SectionContainer>
+            <motion.div
+                ref={ref}
+                variants={containerVariants}
+                initial="hidden"
+                animate={inView ? "visible" : "hidden"}
+                className="grid grid-cols-1 gap-x-4 gap-y-10 sm:grid-cols-2 sm:gap-8 lg:grid-cols-4"
+            >
+                {stats.map((stat, index) => (
+                    <motion.div
+                        key={stat.label}
+                        variants={itemVariants}
+                        className={`flex flex-col items-center gap-2 text-center ${
+                            index < stats.length - 1
+                                ? "lg:border-border-strong lg:border-r"
+                                : ""
+                        }`}
+                    >
+                        <p className="text-malachite-soft text-h2 font-black tracking-tight">
+                            <CountUp
+                                target={stat.value}
+                                suffix={stat.suffix}
+                                decimal={stat.decimal}
+                            />
+                        </p>
+                        <p className="text-typocolor-secondary text-body">
+                            {stat.label}
+                        </p>
+                    </motion.div>
+                ))}
+            </motion.div>
+        </SectionContainer>
     );
 }

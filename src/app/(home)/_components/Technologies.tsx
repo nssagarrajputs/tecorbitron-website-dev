@@ -25,6 +25,7 @@ import AWS from "@/assets/technology-icon/aws-2.svg";
 import GCP from "@/assets/technology-icon/google-cloud-1.svg";
 import Azure from "@/assets/technology-icon/azure-2.svg";
 import Image from "next/image";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const technology = [
     { name: "React", icon: React },
@@ -56,33 +57,29 @@ const technology = [
 // ── Main Section ─────────────────────────────────────────────────────────────
 export default function Technologies() {
     return (
-        <section className="bg-snow h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Tech Stack"
-                    heading="Technologies We Work With"
-                    highlight="We Work With"
-                    support="We pick the right technology for the right problem — not just what's trending."
-                />
-
-                <div className="grid grid-cols-3 gap-6 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8">
-                    {technology.map((tech) => (
-                        <div
-                            key={tech.name}
-                            className="shadow-soft flex min-w-16 flex-col items-center gap-2 rounded-xl bg-white py-4 grayscale-0"
-                        >
-                            <Image
-                                src={tech.icon}
-                                alt={tech.name}
-                                className="aspect-square w-[30%] object-contain select-none"
-                            />
-                            <p className="text-xmall text-typocolor-muted">
-                                {tech.name}
-                            </p>
-                        </div>
-                    ))}
-                </div>
+        <SectionContainer
+            eyebrow="Tech Stack"
+            heading="Technologies We Work With"
+            highlight="We Work With"
+            support="We pick the right technology for the right problem — not just what's trending."
+        >
+            <div className="grid grid-cols-3 gap-2 sm:grid-cols-4 sm:gap-4 md:grid-cols-6 lg:grid-cols-8">
+                {technology.map((tech) => (
+                    <div
+                        key={tech.name}
+                        className="cardbox flex flex-col items-center gap-2 py-4"
+                    >
+                        <Image
+                            src={tech.icon}
+                            alt={tech.name}
+                            className="aspect-square w-[30%] object-contain select-none"
+                        />
+                        <p className="text-xmall text-typocolor-muted">
+                            {tech.name}
+                        </p>
+                    </div>
+                ))}
             </div>
-        </section>
+        </SectionContainer>
     );
 }

@@ -3,6 +3,7 @@ import { Star, Verified } from "lucide-react";
 import Image from "next/image";
 import SectionHeader from "@/components/basic-ui/SectionHeader";
 import DefaultAvatar from "@/assets/clients-testimonials/default-avatar.jpg";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
 
 const testimonials = [
     {
@@ -57,56 +58,50 @@ const testimonials = [
 
 export default function Testimonials() {
     return (
-        <section className="h-breathing-6812 v-breathing-20">
-            <div className="section-vlex-gap mx-auto max-w-7xl">
-                <SectionHeader
-                    eyebrow="Testimonials"
-                    heading="What Our Clients Say"
-                    highlight="Clients Say"
-                    support="Verified feedback from clients across industries — in their own words."
-                />
-
-                <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                    {testimonials.map((review) => (
-                        <div
-                            key={review.companyName}
-                            className="shadow-soft border-border mx-auto max-w-4xl rounded-2xl border p-6"
-                        >
-                            <div className="text-typocolor-muted flex items-center gap-2 select-none">
-                                {review.rating}
-                                <Star size={15} />
-                                on {review.source}{" "}
-                                <Verified size={16} className="text-info" />
-                            </div>
-
-                            <p className="text-body mt-4 mb-8 line-clamp-4 leading-relaxed">
-                                {review.quote}
-                            </p>
-                            <div className="flex items-center justify-between">
-                                <div className="flex items-center gap-2">
-                                    <Image
-                                        src={DefaultAvatar}
-                                        alt=""
-                                        className="aspect-square h-8 w-8 rounded-full select-none"
-                                    />
-                                    <div>
-                                        <h3 className="text-small font-bold">
-                                            {review.name}
-                                        </h3>
-                                        <p className="text-xmall">
-                                            {review.role}
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <p className="text-small text-typocolor-muted max-w-28 text-right font-black select-none">
-                                    {review.companyName}
-                                </p>
-                            </div>
+        <SectionContainer
+            eyebrow="Testimonials"
+            heading="What Our Clients Say"
+            highlight="Clients Say"
+            support="Verified feedback from clients across industries — in their own words."
+        >
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {testimonials.map((review) => (
+                    <div
+                        key={review.companyName}
+                        className="mx-auto max-w-4xl cardbox p-6"
+                    >
+                        <div className="text-typocolor-muted flex items-center gap-2 select-none">
+                            {review.rating}
+                            <Star size={15} />
+                            on {review.source}{" "}
+                            <Verified size={16} className="text-info" />
                         </div>
-                    ))}
-                </div>
+
+                        <p className="text-body mt-4 mb-8 line-clamp-4 leading-relaxed">
+                            {review.quote}
+                        </p>
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-2">
+                                <Image
+                                    src={DefaultAvatar}
+                                    alt=""
+                                    className="aspect-square h-8 w-8 rounded-full select-none"
+                                />
+                                <div>
+                                    <h3 className="text-small font-bold">
+                                        {review.name}
+                                    </h3>
+                                    <p className="text-xmall">{review.role}</p>
+                                </div>
+                            </div>
+
+                            <p className="text-small text-typocolor-muted max-w-28 text-right font-black select-none">
+                                {review.companyName}
+                            </p>
+                        </div>
+                    </div>
+                ))}
             </div>
-        </section>
+        </SectionContainer>
     );
 }
