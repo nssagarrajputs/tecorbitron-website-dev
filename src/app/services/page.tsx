@@ -115,7 +115,6 @@ export default function Services() {
             <Industries />
 
             <FAQFormat
-                bg="bg-white"
                 eyebrow="FAQS"
                 heading="Questions We Get Asked"
                 highlight="Asked"

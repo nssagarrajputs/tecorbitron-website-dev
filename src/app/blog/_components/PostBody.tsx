@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { ArrowLeft, ArrowRight, Twitter, Linkedin, Link2 } from "lucide-react";
+import { ArrowLeft, ArrowRight,  Link2 } from "lucide-react";
 
 // ── Related posts placeholder ──
 const relatedPosts = [
@@ -88,7 +88,8 @@ export default function PostBody({ content, headings = [] }: Props) {
                                 rel="noopener noreferrer"
                                 className="border-border text-subtle hover:border-deepspace hover:text-deepspace flex items-center gap-1.5 rounded-full border px-4 py-2 text-xs font-bold transition-all duration-200"
                             >
-                                <Twitter size={13} /> Twitter / X
+                                {/* <Twitter size={13} /> */}
+                                Twitter / X
                             </a>
                             <a
                                 href={`https://www.linkedin.com/shareArticle?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`}
@@ -96,7 +97,8 @@ export default function PostBody({ content, headings = [] }: Props) {
                                 rel="noopener noreferrer"
                                 className="border-border text-subtle hover:border-deepspace hover:text-deepspace flex items-center gap-1.5 rounded-full border px-4 py-2 text-xs font-bold transition-all duration-200"
                             >
-                                <Linkedin size={13} /> LinkedIn
+                                {/* <Linkedin size={13} /> */}
+                                LinkedIn
                             </a>
                             <button
                                 onClick={handleCopyLink}
