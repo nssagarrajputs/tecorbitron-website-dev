@@ -76,7 +76,7 @@ export default function CoreServices() {
                 {services.map((service) => (
                     <div
                         key={service.name}
-                        className="cardbox flex flex-col justify-between gap-4 p-6"
+                        className="bg-bkg-page border rounded-4 shadow-card flex flex-col justify-between gap-4 p-6"
                     >
                         {/* Icon */}
                         <div className="flex h-18 w-18 items-center justify-center select-none">

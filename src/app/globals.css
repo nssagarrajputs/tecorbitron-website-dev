@@ -5,6 +5,12 @@
 
     --color-*: initial;
 
+    /* STATUS */
+    --color-error: #ff383c;
+    --color-success: #34c73a;
+    --color-info: #0088ff;
+    --color-warning: #ffcc00;
+
     /* ── MALACHITE — Primary Brand ── */
     --color-malachite: #00d060;
     --color-malachite-soft: #33da80;
@@ -19,30 +25,22 @@
     --color-deepspace-deep: #071e2d;
     --color-deepspace-dim: #ebf2f7;
 
-    /* ── NEUTRALS ── */
+    /* NEUTRALS */
     --color-white: #ffffff;
     --color-snow: #f8fafb;
+    --color-surface: #dde6ed;
 
-    /* ── BORDER ── */
-    --color-border: #dde6ed;
+    /* BACKGROUND */
+    --color-bkg-primary: var(--color-white);
+    --color-bkg-secondary: var(--color-snow);
 
-    /* -- BACKGROUNDS -- */
-    --color-bkg-page: var(--color-white);
-    --color-bkg-card: var(--color-snow);
-
-    /* ── TEXT ── */
+    /* TEXT */
     --color-typocolor-heading: var(--color-deepspace-deep);
     --color-typocolor-primary: var(--color-deepspace-rich);
     --color-typocolor-secondary: #3d5c6e;
     --color-typocolor-muted: #6b8a9a;
 
-    /* ── STATUS ── */
-    --color-error: #ff383c;
-    --color-success: #34c73a;
-    --color-info: #0088ff;
-    --color-warning: #ffcc00;
-
-    /* ── TYPOGRAPHY SCALE ── */
+    /* TYPOGRAPHY SCALE */
     --text-*: initial;
     --text-base: 1rem;
     --text-base--line-height: calc(1.5 / 1);
@@ -70,11 +68,15 @@
     --text-small: clamp(0.875rem, 0.692rem + 0.781vw, 1rem); /* 14 → 16 */
     --text-xmall: clamp(0.75rem, 0.659rem + 0.391vw, 0.8125rem); /* 12 → 13 */
 
-    /* ── SHADOWS ── */
-    --shadow-soft: 0 8px 30px rgba(7, 30, 45, 0.06);
-    --shadow-card: 0 10px 30px rgba(12, 49, 70, 0.08);
+    /* FONT WEIGHT */
+    --font-weight-*: initial;
+    --font-weight-light: 300;
+    --font-weight-normal: 400;
+    --font-weight-semibold: 600;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
 
-    /* ── ROUNDED ── */
+    /* BORDER CORNER RADIUS */
     --radius-*: initial;
     --radius-1: 0.25rem;
     --radius-2: 0.5rem;
@@ -82,13 +84,12 @@
     --radius-4: 1rem;
 }
 
-@layer base {
-    *,
-    ::before,
-    ::after {
-        border-color: var(--color-border);
-    }
+/* -------------------------------------------------------------------------- */
+/* BASE LAYER                                                                 */
+/* Global element defaults only                                               */
+/* -------------------------------------------------------------------------- */
 
+@layer base {
     html {
         scroll-behavior: smooth;
         text-size-adjust: 100%;
@@ -97,12 +98,12 @@
     }
 
     body {
-        @apply font-mulish text-typocolor-primary bg-bkg-page antialiased;
+        @apply font-mulish text-typocolor-primary bg-bkg-primary antialiased;
     }
 
     hr {
         border: 0;
-        border-top: 1px solid var(--color-border);
+        border-top: 1px solid var(--color-surface);
     }
 
     :focus-visible {
@@ -116,29 +117,33 @@
     }
 }
 
-/* ── DEBUG UTILITIES ── */
+/* -------------------------------------------------------------------------- */
+/* UTILITIES                                                                  */
+/* Small reusable helpers only                                                */
+/* -------------------------------------------------------------------------- */
+
 @utility tb1 {
     @apply border-error border;
 }
+
 @utility tb2 {
     @apply border-success border;
 }
+
 @utility tb3 {
     @apply border-warning border;
 }
+
 @utility tb4 {
     @apply border-info border;
 }
 
-/*  */
-/*  */
-/*  */
+@utility border-base {
+    @apply border-surface border;
+}
 
-@utility transition-base {
-    transition-property:
-        color, background-color, border-color, box-shadow, transform;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 300ms;
+@utility shadow-soft {
+    box-shadow: 0 8px 30px rgba(7, 30, 45, 0.08);
 }
 
 @utility flex-center {
@@ -146,33 +151,46 @@
 }
 
 @utility section-vlex-gap {
-    @apply flex flex-col gap-10 sm:gap-12 md:gap-14 lg:gap-16;
+    @apply flex flex-col gap-12 sm:gap-14 md:gap-16 lg:gap-20;
 }
 
 @utility h-breathing {
     @apply px-4 sm:px-6 md:px-8;
 }
 
-/* @utility v-breathing {
-    @apply py-16 sm:py-20 md:py-24;
-} */
-
 @utility v-breathing {
     @apply py-20 sm:py-24 md:py-28;
 }
 
-@utility cardbox {
-    @apply bg-bkg-card hover:border-malachite rounded-4 transition-base border;
+@utility transi-base {
+    transition-property:
+        color, background-color, border-color, box-shadow, transform;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
 }
 
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
+/* -------------------------------------------------------------------------- */
+/* COMPONENTS                                                                 */
+/* Reusable semantic classes                                                  */
+/* -------------------------------------------------------------------------- */
+
+@layer components {
+    .cardbox {
+        @apply rounded-4;
+    }
+
+    .form-field {
+        @apply text-small w-full px-4 py-3 font-semibold;
+        @apply rounded-3 shadow-soft;
+        @apply focus:border-malachite transi-base outline-none;
+    }
+}
+
+/* ------------------------------------------------------------------------ */
+/* HOMEPAGE */
+/* ------------------------------------------------------------------------ */
 
 /* Marquee scroll — ClientStripe */
-
 @keyframes marquee-left {
     0% {
         transform: translateX(0);
@@ -189,14 +207,4 @@
     100% {
         transform: translateX(0);
     }
-}
-
-/*  */
-/*  */
-/*  */
-/*  */
-/*  */
-
-@utility pi-form-field {
-    @apply text-small focus:border-malachite rounded-3 transition-base shadow-soft w-full border bg-white px-4 py-3 font-semibold outline-none;
 }

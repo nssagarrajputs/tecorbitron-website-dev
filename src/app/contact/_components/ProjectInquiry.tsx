@@ -101,7 +101,7 @@ export default function ProjectInquiry() {
                 </div>
 
                 {/* ── RIGHT — Form or Success (scoped) ── */}
-                <div className="bg-bkg-card rounded-4 flex flex-col gap-8 border p-6 md:p-8">
+                <div className="shadow-soft rounded-4 flex flex-col gap-8 border p-6 md:p-8">
                     {status === "success" ? (
                         <div className="flex flex-1 flex-col items-center justify-center gap-4 py-12 text-center">
                             <div className="bg-malachite-opac flex h-16 w-16 items-center justify-center rounded-full">

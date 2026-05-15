@@ -67,7 +67,7 @@ export default function Technologies() {
                 {technology.map((tech) => (
                     <div
                         key={tech.name}
-                        className="cardbox flex flex-col items-center gap-2 py-4"
+                        className="border rounded-4 shadow-soft  flex flex-col items-center gap-2 py-4"
                     >
                         <Image
                             src={tech.icon}
