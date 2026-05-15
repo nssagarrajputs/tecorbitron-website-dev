@@ -47,7 +47,7 @@ export default function FAQFormat({
                         <article
                             key={index}
                             onClick={() => setOpenIndex(isOpen ? null : index)}
-                            className="transition-base border-b"
+                            className="border-base border-b"
                         >
                             <div className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left">
                                 <h4 className="text-body text-typocolor-primary font-bold">
@@ -55,7 +55,7 @@ export default function FAQFormat({
                                 </h4>
 
                                 <div
-                                    className={`text-typocolor-secondary transition-base flex-center rounded-full ${
+                                    className={`text-typocolor-secondary transi-base flex-center rounded-full ${
                                         isOpen ? "rotate-45" : "rotate-0"
                                     }`}
                                 >
@@ -73,7 +73,7 @@ export default function FAQFormat({
                                         <div className="mt-3">
                                             <Link
                                                 href={faq.link}
-                                                className="text-small text-malachite hover:text-malachite-rich transition-base inline-flex font-bold"
+                                                className="text-small text-malachite hover:text-malachite-rich transi-base inline-flex font-bold"
                                             >
                                                 {faq.linkText}
                                             </Link>

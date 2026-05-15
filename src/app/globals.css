@@ -139,7 +139,7 @@
 }
 
 @utility border-base {
-    @apply border-surface border;
+    @apply border-surface;
 }
 
 @utility shadow-soft {
@@ -164,7 +164,7 @@
 
 @utility transi-base {
     transition-property:
-        color, background-color, border-color, box-shadow, transform;
+        color, background-color, border-color, box-shadow, transform, rotate;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     transition-duration: 300ms;
 }

@@ -12,7 +12,7 @@ function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
         highlight && title.includes(highlight) ? title.split(highlight) : null;
 
     return (
-        <section className="h-breathing relative overflow-hidden pt-32 pb-20">
+        <section className="h-breathing relative overflow-hidden pt-32 pb-12 ">
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.03]"
                 style={{
