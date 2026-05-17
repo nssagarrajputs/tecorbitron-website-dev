@@ -169,7 +169,7 @@ export default function Intro() {
                             src="https://www.showmelocal.com/showmelocal-member-39762168"
                             alt="Tecorbitron Solutions Private Limited,Website Designer,Ghaziabad,Uttar Pradesh"
                             width={100}
-                            height={50}
+                            height={60}
                         />
                     </a>
                 </div>

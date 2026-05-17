@@ -1,10 +1,8 @@
 import BlogListing from "@/app/blog/_components/BlogListing";
 import RecentBlogs from "@/app/blog/_components/RecentBlogs";
 import { client } from "@/sanity/client";
-import {
-    BLOG_LISTING_QUERY,
-    BLOG_CATEGORIES_QUERY,
-} from "@/sanity/queries/blog";
+
+import { groq } from "next-sanity";
 
 import type { Metadata } from "next";
 import PageHero from "@/components/basic-ui/PageHero";
@@ -30,6 +28,22 @@ export const metadata: Metadata = {
         images: [{ url: "/og-image.png", width: 1200, height: 630 }],
     },
 };
+
+const BLOG_LISTING_QUERY = groq`
+  *[_type == "post"] | order(publishedAt desc) {
+    title,
+    "slug": slug.current,
+    publishedAt,
+    "coverImage": coverImage.asset->url,
+  }
+`;
+
+const BLOG_CATEGORIES_QUERY = groq`
+  *[_type == "category"] | order(name asc) {
+    name,
+    "slug": slug.current,
+  }
+`;
 
 export default async function Blog() {
     const [posts, categories] = await Promise.all([

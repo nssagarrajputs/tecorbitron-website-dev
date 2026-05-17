@@ -5,23 +5,21 @@ import { groq } from "next-sanity";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 
-export const PORTFOLIO_PREVIEW_QUERY = groq`
-  *[_type == "project" && featured == true] | order(completedAt desc) [0...3] {
-    projectName,
-    "slug": slug.current,
-    "thumbnail": thumbnail.asset->url,
-    "industries": industries[]->name,
-    summary,
-  }
-`;
-
 type PortfolioPreviewProject = {
     projectName: string;
     slug: string;
     thumbnail: string | null;
-    industries: string[];
     summary: string;
 };
+
+const PORTFOLIO_PREVIEW_QUERY = groq`
+  *[_type == "project" && featured == true] | order(completedAt desc) [0...3] {
+    projectName,
+    "slug": slug.current,
+    "thumbnail": thumbnail.asset->url,
+    summary,
+  }
+`;
 
 export default async function FeaturedProjects() {
     const projects: PortfolioPreviewProject[] = await client.fetch(

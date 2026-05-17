@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { groq } from "next-sanity";
 
 import Image from "next/image";
 import SectionContainer from "@/components/basic-ui/SectionContainer";

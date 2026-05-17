@@ -1,8 +1,7 @@
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import { client } from "@/sanity/client";
-import { RECENT_BLOGS_QUERY } from "@/sanity/queries/blog";
+import { groq } from "next-sanity";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
 import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
 
@@ -10,10 +9,17 @@ type RecentPost = {
     title: string;
     slug: string;
     excerpt: string;
-    publishedAt: string;
-    category: string;
     coverImage: string | null;
 };
+
+const RECENT_BLOGS_QUERY = groq`
+  *[_type == "post"] | order(publishedAt desc) [0...2] {
+    title,
+    "slug": slug.current,
+    excerpt,
+    "coverImage": coverImage.asset->url,
+  }
+`;
 
 function formatDate(dateStr: string) {
     return new Date(dateStr).toLocaleDateString("en-IN", {

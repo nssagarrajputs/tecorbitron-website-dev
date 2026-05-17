@@ -5,10 +5,8 @@ import { ArrowRight, ChevronRight } from "lucide-react";
 import { PortableText } from "@portabletext/react";
 import { client } from "@/sanity/client";
 import { groq } from "next-sanity";
-import {
-    PORTFOLIO_DETAIL_QUERY,
-    PORTFOLIO_RELATED_QUERY,
-} from "@/sanity/queries/portfolio";
+import DefBlogThumbnail from "@/assets/other/default-thumbnail.webp";
+
 import type {
     PortableTextComponentProps,
     PortableTextBlock,
@@ -20,6 +18,9 @@ import StructuredData, {
     portfolioProjectSchema,
 } from "@/components/StructuredData";
 import type { Metadata } from "next";
+import PageHero from "@/components/basic-ui/PageHero";
+import SectionContainer from "@/components/basic-ui/SectionContainer";
+import SectionHeader from "@/components/basic-ui/SectionHeader";
 
 // ── Types ─────────────────────────────────────────────────────────────────────
 type TechStack = {
@@ -32,8 +33,38 @@ type RelatedProject = {
     title: string;
     slug: string;
     thumbnail: string | null;
-    industries: string[];
 };
+
+const PORTFOLIO_RELATED_QUERY = groq`
+  *[_type == "project" && slug.current != $slug] | order(completedAt desc) [0...3] {
+    projectName,
+    title,
+    "slug": slug.current,
+    "thumbnail": thumbnail.asset->url,
+  }
+`;
+
+const PORTFOLIO_DETAIL_QUERY = groq`
+  *[_type == "project" && slug.current == $slug][0] {
+     projectName,
+     title,
+    "slug": slug.current,
+    "thumbnail": thumbnail.asset->url,
+    "industries": industries[]->name,
+    "techStack": techStack[]->{name, category},
+    projectTypes,
+    completedAt,
+    livePreview,
+    summary,
+    problem,
+    solution,
+    result,
+    "screenshots": screenshots[]{
+      "url": asset->url,
+      alt
+    },
+  }
+`;
 
 // ── Static Params ─────────────────────────────────────────────────────────────
 export async function generateStaticParams() {
@@ -140,7 +171,7 @@ function CaseStudySection({
     if (!content || content.length === 0) return null;
     return (
         <div className="flex flex-col gap-4">
-            <h2 className="text-lg font-bold">{title}</h2>
+            <h2 className="text-h3 font-bold">{title}</h2>
             <div className="flex flex-col gap-3">
                 <PortableText value={content} components={ptComponents} />
             </div>
@@ -168,8 +199,29 @@ export default async function ProjectDetailPage(props: {
         <main className="bg-white">
             <StructuredData data={portfolioProjectSchema(projData)} />
 
-            <div className="mx-auto max-w-7xl px-4 pt-24 pb-24">
-                {/* ── BREADCRUMB ── */}
+            <PageHero width="lg" eyebrow="Case Study" title={projData.title} />
+
+            <SectionContainer width="lg">
+                <div className="border-base rounded-4 shadow-soft overflow-hidden border">
+                    {projData.thumbnail ? (
+                        <Image
+                            src={projData.thumbnail}
+                            alt={projData.projectName}
+                            width={2000}
+                            height={2000}
+                            className="h-120 object-cover"
+                        />
+                    ) : (
+                        <Image
+                            src={DefBlogThumbnail}
+                            alt={projData.projectName}
+                            width={2000}
+                            height={2000}
+                            className="w-full object-cover"
+                        />
+                    )}
+                </div>
+
                 <nav className="text-muted mb-4 flex items-center gap-1.5 text-xs">
                     <Link
                         href="/"
@@ -188,32 +240,10 @@ export default async function ProjectDetailPage(props: {
                     <span className="line-clamp-1">{projData.projectName}</span>
                 </nav>
 
-                {/* ── THUMBNAIL ── */}
-                {projData.thumbnail && (
-                    <div className="mb-10 w-full overflow-hidden rounded-xl">
-                        <div className="relative min-h-96 w-full">
-                            <Image
-                                src={projData.thumbnail}
-                                alt={projData.projectName}
-                                fill
-                                priority
-                                className="object-cover"
-                                sizes="100vw"
-                            />
-                        </div>
-                    </div>
-                )}
-
-                {/* ── TITLE ── */}
-                <h1 className="text-deepspace mb-8 text-4xl font-bold tracking-tight sm:text-5xl">
-                    {projData.title}
-                </h1>
-
-                {/* ── META ROW ── */}
-                <div className="mb-14 flex flex-col gap-6 sm:flex-row">
+                <div className="mx-auto flex w-full max-w-5xl flex-col gap-8 sm:flex-row">
                     {/* Industries */}
                     {projData.industries?.length > 0 && (
-                        <div className="border-border flex flex-col gap-2 border-l-2 p-4">
+                        <div className="cardbox flex w-full flex-col gap-6 p-8">
                             <span className="text-muted font-semibold">
                                 Industry
                             </span>
@@ -221,7 +251,7 @@ export default async function ProjectDetailPage(props: {
                                 {projData.industries.map((ind: string) => (
                                     <span
                                         key={ind}
-                                        className="bg-deepspace-dim text-deepspace rounded-sm px-3 py-1 text-sm font-bold capitalize"
+                                        className="bg-deepspace-dim text-deepspace rounded-2 text-small px-3 py-1 font-bold capitalize"
                                     >
                                         {ind}
                                     </span>
@@ -232,7 +262,7 @@ export default async function ProjectDetailPage(props: {
 
                     {/* Tech Stack */}
                     {projData.techStack?.length > 0 && (
-                        <div className="border-border flex flex-col gap-2 border-l-2 p-4">
+                        <div className="cardbox flex w-full flex-col gap-6 p-8">
                             <span className="text-muted font-semibold">
                                 Tech Stack
                             </span>
@@ -240,7 +270,7 @@ export default async function ProjectDetailPage(props: {
                                 {projData.techStack.map((tech: TechStack) => (
                                     <span
                                         key={tech.name}
-                                        className="bg-malachite-dim text-malachite-deep rounded-sm px-3 py-1 text-sm font-bold"
+                                        className="bg-malachite-dim text-malachite-deep rounded-2 text-small px-3 py-1 font-bold"
                                     >
                                         {tech.name}
                                     </span>
@@ -250,19 +280,17 @@ export default async function ProjectDetailPage(props: {
                     )}
                 </div>
 
-                {/* ── SUMMARY ── */}
                 {projData.summary && (
-                    <div className="mx-auto mb-10 flex max-w-5xl flex-col gap-3">
-                        <h2 className="text-lg font-bold">Summary</h2>
-                        <p className="text-base leading-relaxed">
+                    <div className="flex flex-col gap-3">
+                        <h2 className="text-h3 font-bold">Summary</h2>
+                        <p className="text-body leading-relaxed">
                             {projData.summary}
                         </p>
                     </div>
                 )}
 
-                {/* ── CASE STUDY ── */}
                 {hasAnyCaseStudy && (
-                    <div className="mx-auto mb-10 flex max-w-5xl flex-col gap-8">
+                    <div className="flex flex-col gap-8">
                         <CaseStudySection
                             title="The Problem"
                             content={projData.problem}
@@ -274,10 +302,9 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
-                {/* ── SCREENSHOTS ── */}
                 {projData.screenshots?.length > 0 && (
-                    <div className="mx-auto mb-10 flex max-w-5xl flex-col gap-5">
-                        <h2 className="text-lg font-bold">Screenshots</h2>
+                    <div className="mx-auto flex max-w-5xl flex-col gap-5">
+                        <h2 className="text-h3 font-bold">Screenshots</h2>
                         <div className="flex flex-col gap-4">
                             {projData.screenshots.map(
                                 (
@@ -286,7 +313,7 @@ export default async function ProjectDetailPage(props: {
                                 ) => (
                                     <div
                                         key={idx}
-                                        className="border-border overflow-hidden rounded-xl border shadow-sm"
+                                        className="border-base rounded-4 shadow-soft overflow-hidden border"
                                     >
                                         <Image
                                             src={shot.url}
@@ -306,7 +333,7 @@ export default async function ProjectDetailPage(props: {
                 )}
 
                 {hasAnyCaseStudy && (
-                    <div className="mx-auto mb-10 flex max-w-5xl flex-col gap-8">
+                    <div className="flex flex-col gap-8">
                         <CaseStudySection
                             title="Results & Outcome"
                             content={projData.result}
@@ -314,69 +341,57 @@ export default async function ProjectDetailPage(props: {
                     </div>
                 )}
 
-                {/* ── DIVIDER ── */}
-                <div className="border-border mb-10 border-t" />
+                <hr />
 
-                {/* ── MORE PROJECTS ── */}
                 {related?.length > 0 && (
-                    <div className="flex flex-col gap-6">
-                        <div className="flex items-center justify-between">
-                            <h2 className="text-deepspace text-lg font-black">
-                                More Projects
-                            </h2>
-                            <Link
-                                href="/portfolio"
-                                className="text-muted hover:text-malachite-rich inline-flex items-center gap-1 text-xs font-bold transition-colors duration-200"
-                            >
-                                View All <ArrowRight size={11} />
-                            </Link>
-                        </div>
-                        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div className="section-vlex-gap">
+                        <SectionHeader
+                            heading="Related Projects"
+                            highlight="Projects"
+                        />
+                        <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
                             {related.map((proj: RelatedProject) => (
-                                <Link
+                                <div
                                     key={proj.slug}
-                                    href={`/portfolio/${proj.slug}`}
-                                    className="group border-border bg-surface hover:border-malachite flex flex-col overflow-hidden rounded-2xl border transition-all duration-300 hover:-translate-y-0.5"
+                                    className="group hover:border-malachite cardbox flex flex-col overflow-hidden"
                                 >
-                                    <div className="bg-deepspace relative h-36 overflow-hidden">
+                                    <div className="bg-deepspace relative h-32 overflow-hidden">
                                         {proj.thumbnail ? (
                                             <Image
                                                 src={proj.thumbnail}
                                                 alt={proj.projectName}
-                                                fill
-                                                className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                                sizes="(max-width: 640px) 100vw, 33vw"
+                                                width={500}
+                                                height={500}
+                                                className="w-full object-cover"
                                             />
                                         ) : (
-                                            <div className="from-deepspace to-deepspace-soft flex h-full items-center justify-center bg-linear-to-br">
-                                                <span className="text-3xl font-black text-white/10">
-                                                    {proj.projectName.charAt(0)}
-                                                </span>
-                                            </div>
+                                            <Image
+                                                src={DefBlogThumbnail}
+                                                alt={proj.projectName}
+                                                width={500}
+                                                height={500}
+                                                className="w-full object-cover"
+                                            />
                                         )}
                                     </div>
-                                    <div className="flex flex-col gap-1.5 p-4">
-                                        {proj.industries?.[0] && (
-                                            <span className="text-malachite-rich text-xs font-bold">
-                                                {proj.industries[0]}
-                                            </span>
-                                        )}
-                                        <h3 className="text-deepspace group-hover:text-malachite-rich line-clamp-2 text-sm leading-snug font-black transition-colors duration-200">
-                                            {proj.projectName}
-                                        </h3>
-                                        <p className="text-muted line-clamp-1 text-xs font-light">
+                                    <div className="flex flex-col gap-6 p-4">
+                                        <h3 className="text-typocolor-primary text-small line-clamp-2 leading-snug font-bold">
                                             {proj.title}
-                                        </p>
-                                        <span className="text-malachite-rich mt-1 inline-flex items-center gap-1 text-xs font-bold opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-                                            View <ArrowRight size={11} />
-                                        </span>
+                                        </h3>
+
+                                        <Link
+                                            href={`/portfolio/${proj.slug}`}
+                                            className="action-btn"
+                                        >
+                                            View Project
+                                        </Link>
                                     </div>
-                                </Link>
+                                </div>
                             ))}
                         </div>
                     </div>
                 )}
-            </div>
+            </SectionContainer>
         </main>
     );
 }

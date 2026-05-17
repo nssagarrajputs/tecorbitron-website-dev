@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 import { client } from "@/sanity/client";
-import { BLOG_TEASER_QUERY } from "@/sanity/queries/blog";
+import { groq } from "next-sanity";
 import Image from "next/image";
 import BrandBtn from "@/components/basic-ui/BrandBtn";
 import SectionContainer from "@/components/basic-ui/SectionContainer";
@@ -11,10 +11,17 @@ type BlogTeaserPost = {
     title: string;
     slug: string;
     publishedAt: string;
-    readTime: number;
-    category: string;
     coverImage: string | null;
 };
+
+const BLOG_TEASER_QUERY = groq`
+  *[_type == "post"] | order(publishedAt desc) [0...3] {
+    title,
+    "slug": slug.current,
+    publishedAt,
+    "coverImage": coverImage.asset->url,
+  }
+`;
 
 // Format date helper
 function formatDate(dateStr: string) {

@@ -1,18 +1,32 @@
 import Eypill from "./Eypill";
 
 type PageHeroProps = {
+    width?: "sm" | "md" | "lg" | "xl";
     eyebrow: string;
     title: string;
     highlight?: string;
     description?: string;
 };
 
-function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
+const widthMap = {
+    sm: "max-w-4xl",
+    md: "max-w-5xl",
+    lg: "max-w-6xl",
+    xl: "max-w-7xl",
+};
+
+function PageHero({
+    width = "sm",
+    eyebrow,
+    title,
+    highlight,
+    description,
+}: PageHeroProps) {
     const parts =
         highlight && title.includes(highlight) ? title.split(highlight) : null;
 
     return (
-        <section className="h-breathing relative overflow-hidden pt-32 pb-12 ">
+        <section className="h-breathing relative overflow-hidden pt-32 pb-12">
             <div
                 className="pointer-events-none absolute inset-0 opacity-[0.03]"
                 style={{
@@ -30,10 +44,13 @@ function PageHero({ eyebrow, title, highlight, description }: PageHeroProps) {
                 }}
             />
 
-            <div className="mx-auto flex max-w-4xl flex-col items-center text-center">
+            {/* <div className="tb1 mx-auto flex max-w-4xl flex-col items-center text-center"> */}
+            <div
+                className={`mx-auto flex ${widthMap[width]} flex-col items-center text-center`}
+            >
                 <Eypill text={eyebrow} />
 
-                <h1 className="text-h1 mx-auto mt-6 mb-5 max-w-4xl leading-tight font-black tracking-tight">
+                <h1 className="text-h1 mx-auto mt-6 mb-5 leading-tight font-black tracking-tight">
                     {parts ? (
                         <>
                             {parts[0]}
